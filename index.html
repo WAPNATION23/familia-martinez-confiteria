@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -16,11 +16,11 @@
       theme: {
         extend: {
           colors: {
-            ink: "#050505",
+            ink: "#070707",
+            ivory: "#F4EEE3",
             gold: {
               50: "#FBF6E4",
-              100: "#F5E6A8",
-              300: "#E8D48B",
+              100: "#F3E3A6",
               DEFAULT: "#D4AF37",
               600: "#B8941F",
               800: "#7A5C12"
@@ -30,18 +30,16 @@
             display: ["Cormorant Garamond", "Georgia", "serif"],
             sans: ["Outfit", "system-ui", "sans-serif"]
           },
-          letterSpacing: {
-            brand: "0.42em"
-          }
+          letterSpacing: { brand: "0.46em" }
         }
       }
     };
   </script>
   <style>
     html { scroll-behavior: smooth; }
-    body { background: #050505; }
+    body { background: #070707; }
     .gold-text {
-      background: linear-gradient(180deg, #F5E6A8 0%, #D4AF37 48%, #A67C00 100%);
+      background: linear-gradient(180deg, #F6E7B0 0%, #D4AF37 48%, #9A7514 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -50,46 +48,63 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, #D4AF37, transparent);
     }
-    .gold-border {
-      border: 1px solid rgba(212, 175, 55, 0.35);
+    .gold-frame { box-shadow: inset 0 0 0 1px rgba(212,175,55,.45); }
+    .grain::after {
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      opacity: .09;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     }
-    .card-lift {
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    .kenburns { animation: kenburns 28s ease-out forwards; }
+    @keyframes kenburns {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
     }
-    .card-lift:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
-      border-color: rgba(212, 175, 55, 0.7);
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.is-in { opacity: 1; transform: none; }
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -8px;
+      height: 1px;
+      background: #D4AF37;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
     }
-    .hero-overlay {
-      background:
-        linear-gradient(180deg, rgba(5,5,5,0.72) 0%, rgba(5,5,5,0.45) 40%, rgba(5,5,5,0.82) 100%);
+    .nav-link:hover::after { transform: scaleX(1); }
+    .img-zoom { overflow: hidden; }
+    .img-zoom img { transition: transform .7s ease; }
+    .img-zoom:hover img { transform: scale(1.06); }
+    .marquee-track { animation: marquee 28s linear infinite; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
   </style>
 </head>
 <body class="font-sans text-neutral-800 antialiased">
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/90 backdrop-blur-md">
-    <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3 lg:px-8">
-      <a href="#inicio" class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="Familia Martínez Confitería" class="h-12 w-auto sm:h-14" />
-        <span class="hidden sm:flex flex-col leading-none">
-          <span class="text-[11px] font-semibold tracking-[0.22em] text-white">FAMILIA MARTÍNEZ</span>
-          <span class="mt-1 text-[9px] tracking-brand gold-text">CONFITERÍA</span>
-        </span>
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/85 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
+      <a href="#inicio" class="flex items-center">
+        <img src="assets/logo.png" alt="Familia Martínez Confitería" class="h-12 w-auto sm:h-[58px]" />
       </a>
-      <nav class="hidden items-center gap-8 text-[12px] font-medium uppercase tracking-[0.18em] text-white/80 lg:flex">
-        <a href="#inicio" class="hover:text-gold">Inicio</a>
-        <a href="#productos" class="hover:text-gold">Productos</a>
-        <a href="#servicios" class="hover:text-gold">Servicios</a>
-        <a href="#nosotros" class="hover:text-gold">Quiénes Somos</a>
-        <a href="#contacto" class="rounded-full border border-gold/60 px-4 py-2 text-gold hover:bg-gold hover:text-ink">Contacto</a>
+      <nav class="hidden items-center gap-9 text-[11px] font-medium uppercase tracking-[0.22em] text-white/75 lg:flex">
+        <a href="#inicio" class="nav-link hover:text-white">Inicio</a>
+        <a href="#productos" class="nav-link hover:text-white">Productos</a>
+        <a href="#servicios" class="nav-link hover:text-white">Servicios</a>
+        <a href="#nosotros" class="nav-link hover:text-white">Quiénes Somos</a>
+        <a href="#contacto" class="rounded-full border border-gold/70 px-5 py-2 text-gold transition hover:bg-gold hover:text-ink">Contacto</a>
       </nav>
       <button id="menuBtn" class="text-white lg:hidden" aria-label="Abrir menú">
-        <i class="fa-solid fa-bars text-xl"></i>
+        <i class="fa-solid fa-bars text-lg"></i>
       </button>
     </div>
-    <div id="mobileMenu" class="hidden border-t border-white/10 bg-ink px-5 py-4 lg:hidden">
-      <div class="flex flex-col gap-4 text-sm uppercase tracking-[0.16em] text-white/85">
+    <div id="mobileMenu" class="hidden border-t border-white/10 bg-ink px-5 py-5 lg:hidden">
+      <div class="flex flex-col gap-4 text-xs uppercase tracking-[0.2em] text-white/85">
         <a href="#inicio">Inicio</a>
         <a href="#productos">Productos</a>
         <a href="#servicios">Servicios</a>
@@ -99,133 +114,148 @@
     </div>
   </header>
 
-  <section id="inicio" class="relative min-h-screen overflow-hidden">
-    <img
-      src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=1920&q=80"
-      alt="Imagen de alta calidad de arreglo de confitería corporativa"
-      class="absolute inset-0 h-full w-full object-cover"
-    />
-    <div class="hero-overlay absolute inset-0"></div>
-    <div class="relative mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 pb-16 pt-28 text-center">
+  <section id="inicio" class="relative min-h-screen overflow-hidden grain">
+    <img src="assets/hero.jpg" alt="Arreglo de confitería corporativa" class="kenburns absolute inset-0 h-full w-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/85"></div>
+    <div class="pointer-events-none absolute inset-5 rounded-[28px] gold-frame sm:inset-8"></div>
+    <div class="relative mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 pb-20 pt-28 text-center">
+      <img src="assets/logo.png" alt="" class="mb-6 h-20 w-auto opacity-95 sm:h-24" />
       <p class="text-[11px] uppercase tracking-brand gold-text">Confitería corporativa</p>
-      <div class="gold-line my-6 w-40"></div>
-      <h1 class="font-display text-4xl font-semibold leading-tight text-white sm:text-6xl md:text-7xl">
+      <div class="gold-line my-7 w-44"></div>
+      <h1 class="font-display text-[42px] font-semibold leading-[1.05] text-white sm:text-6xl md:text-7xl">
         Sabor y Distinción<br />para tu Empresa
       </h1>
-      <p class="mt-6 max-w-2xl text-base font-light leading-relaxed text-white/75 sm:text-lg">
-        Snacks, bebidas y cafetería con el sello de Familia Martínez. Atención a empresas que buscan calidad, puntualidad y una presentación a la altura de su marca.
+      <p class="mt-7 max-w-xl text-[15px] font-light leading-relaxed text-white/70 sm:text-lg">
+        Snacks, bebidas y cafetería con el sello de Familia Martínez. Calidad, puntualidad y una presentación a la altura de su marca.
       </p>
-      <a href="#contacto" class="mt-10 inline-flex items-center gap-3 rounded-full bg-gold px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-ink transition hover:bg-gold-100">
-        Cotizar Ahora
-        <i class="fa-solid fa-arrow-right text-xs"></i>
-      </a>
+      <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+        <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gold px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink transition hover:bg-gold-100">
+          Cotizar Ahora <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+        <a href="#productos" class="text-[11px] uppercase tracking-[0.22em] text-white/70 hover:text-gold">Ver catálogo</a>
+      </div>
     </div>
   </section>
 
-  <section id="productos" class="bg-[#FAF7F0] py-24">
+  <div class="overflow-hidden border-y border-gold/25 bg-ink py-4">
+    <div class="marquee-track flex w-max gap-10 text-[11px] uppercase tracking-[0.35em] text-gold">
+      <span>Calidad</span><span>·</span><span>Presentación</span><span>·</span><span>Puntualidad</span><span>·</span>
+      <span>Calidad</span><span>·</span><span>Presentación</span><span>·</span><span>Puntualidad</span><span>·</span>
+      <span>Calidad</span><span>·</span><span>Presentación</span><span>·</span><span>Puntualidad</span><span>·</span>
+      <span>Calidad</span><span>·</span><span>Presentación</span><span>·</span><span>Puntualidad</span><span>·</span>
+    </div>
+  </div>
+
+  <section id="productos" class="bg-ivory py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-5 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
+      <div class="reveal mx-auto max-w-2xl text-center">
         <p class="text-[11px] uppercase tracking-brand text-gold-600">Catálogo</p>
-        <h2 class="mt-3 font-display text-4xl text-ink sm:text-5xl">Productos</h2>
+        <h2 class="mt-4 font-display text-4xl text-ink sm:text-5xl">Productos</h2>
         <div class="gold-line mx-auto mt-6 w-24"></div>
       </div>
 
       <div class="mt-16 grid gap-8 lg:grid-cols-3">
-        <article class="card-lift gold-border overflow-hidden rounded-2xl bg-white">
-          <div class="bg-ink px-6 py-5">
-            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 text-gold">
-              <i class="fa-solid fa-candy-cane"></i>
+        <article class="reveal overflow-hidden rounded-[22px] border border-gold/30 bg-white shadow-[0_20px_50px_rgba(0,0,0,.06)]">
+          <div class="img-zoom relative h-56">
+            <img src="assets/chocolate.jpg" alt="Snacks y confites" class="h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-5 left-5">
+              <p class="text-[10px] uppercase tracking-[0.25em] text-gold">01</p>
+              <h3 class="font-display text-3xl text-white">Snacks y Confites</h3>
             </div>
-            <h3 class="font-display text-2xl text-white">Snacks y Confites</h3>
           </div>
           <div class="p-6">
             <p class="text-sm leading-relaxed text-neutral-600">
               Disfruta de nuestros chocolates, galletas, barras de cereal, frutos secos, caramelos, y más.
             </p>
-            <div class="mt-5 grid grid-cols-2 gap-3">
-              <figure>
-                <img src="https://images.unsplash.com/photo-1606312619070-d48b4cbc87a8?auto=format&fit=crop&w=600&q=80" alt="Chocolates" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Chocolates</figcaption>
+            <div class="mt-5 grid grid-cols-5 gap-2">
+              <figure class="img-zoom col-span-2">
+                <img src="assets/chocolate.jpg" alt="Chocolates" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Chocolates</figcaption>
               </figure>
-              <figure>
-                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80" alt="Galletas" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Galletas</figcaption>
+              <figure class="img-zoom col-span-3">
+                <img src="assets/cookies.jpg" alt="Galletas" class="aspect-[2/1] h-full w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Galletas</figcaption>
               </figure>
-              <figure>
-                <img src="https://images.unsplash.com/photo-1514996937319-34433131185a?auto=format&fit=crop&w=600&q=80" alt="Barras de cereal" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Barras de cereal</figcaption>
+              <figure class="img-zoom">
+                <img src="assets/granola.jpg" alt="Barras de cereal" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Cereal</figcaption>
               </figure>
-              <figure>
-                <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d25?auto=format&fit=crop&w=600&q=80" alt="Frutos secos" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Frutos secos</figcaption>
+              <figure class="img-zoom">
+                <img src="assets/nuts.jpg" alt="Frutos secos" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Frutos secos</figcaption>
               </figure>
-              <figure class="col-span-2">
-                <img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=900&q=80" alt="Caramelos" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Caramelos</figcaption>
+              <figure class="img-zoom col-span-3">
+                <img src="assets/candy.jpg" alt="Caramelos" class="aspect-[3/1] h-full w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Caramelos</figcaption>
               </figure>
             </div>
           </div>
         </article>
 
-        <article class="card-lift gold-border overflow-hidden rounded-2xl bg-white">
-          <div class="bg-ink px-6 py-5">
-            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 text-gold">
-              <i class="fa-solid fa-bottle-water"></i>
+        <article class="reveal overflow-hidden rounded-[22px] border border-gold/30 bg-white shadow-[0_20px_50px_rgba(0,0,0,.06)]">
+          <div class="img-zoom relative h-56">
+            <img src="assets/juice.jpg" alt="Bebidas" class="h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-5 left-5">
+              <p class="text-[10px] uppercase tracking-[0.25em] text-gold">02</p>
+              <h3 class="font-display text-3xl text-white">Bebidas</h3>
             </div>
-            <h3 class="font-display text-2xl text-white">Bebidas</h3>
           </div>
           <div class="p-6">
             <p class="text-sm leading-relaxed text-neutral-600">
               Ofrecemos bebidas, jugos, aguas y energéticas.
             </p>
-            <div class="mt-5 grid grid-cols-2 gap-3">
-              <figure>
-                <img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=600&q=80" alt="Bebidas" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Bebidas</figcaption>
+            <div class="mt-5 grid grid-cols-2 gap-2">
+              <figure class="img-zoom">
+                <img src="assets/soda.jpg" alt="Bebidas" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Bebidas</figcaption>
               </figure>
-              <figure>
-                <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&q=80" alt="Jugos" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Jugos</figcaption>
+              <figure class="img-zoom">
+                <img src="assets/juice.jpg" alt="Jugos" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Jugos</figcaption>
               </figure>
-              <figure>
-                <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=600&q=80" alt="Aguas" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Aguas</figcaption>
+              <figure class="img-zoom">
+                <img src="assets/water.jpg" alt="Aguas" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Aguas</figcaption>
               </figure>
-              <figure>
-                <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=600&q=80" alt="Energéticas" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Energéticas</figcaption>
+              <figure class="img-zoom">
+                <img src="assets/energy.jpg" alt="Energéticas" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Energéticas</figcaption>
               </figure>
             </div>
           </div>
         </article>
 
-        <article class="card-lift gold-border overflow-hidden rounded-2xl bg-white">
-          <div class="bg-ink px-6 py-5">
-            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 text-gold">
-              <i class="fa-solid fa-mug-hot"></i>
+        <article class="reveal overflow-hidden rounded-[22px] border border-gold/30 bg-white shadow-[0_20px_50px_rgba(0,0,0,.06)]">
+          <div class="img-zoom relative h-56">
+            <img src="assets/coffee.jpg" alt="Cafetería" class="h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-5 left-5">
+              <p class="text-[10px] uppercase tracking-[0.25em] text-gold">03</p>
+              <h3 class="font-display text-3xl text-white">Cafetería</h3>
             </div>
-            <h3 class="font-display text-2xl text-white">Cafetería</h3>
           </div>
           <div class="p-6">
             <p class="text-sm leading-relaxed text-neutral-600">
               Todo para tu pausa: café, té, azúcar y endulzantes.
             </p>
-            <div class="mt-5 grid grid-cols-2 gap-3">
-              <figure>
-                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Café" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Café</figcaption>
+            <div class="mt-5 grid grid-cols-2 gap-2">
+              <figure class="img-zoom">
+                <img src="assets/coffee2.jpg" alt="Café" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Café</figcaption>
               </figure>
-              <figure>
-                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80" alt="Té" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Té</figcaption>
+              <figure class="img-zoom">
+                <img src="assets/tea.jpg" alt="Té" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Té</figcaption>
               </figure>
-              <figure>
-                <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=600&q=80" alt="Azúcar" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Azúcar</figcaption>
+              <figure class="img-zoom">
+                <img src="assets/sugar.jpg" alt="Azúcar" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Azúcar</figcaption>
               </figure>
-              <figure>
-                <img src="https://images.unsplash.com/photo-1587049352846-4a7b0a06bf13?auto=format&fit=crop&w=600&q=80" alt="Endulzantes" class="h-24 w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[11px] uppercase tracking-wider text-neutral-500">Endulzantes</figcaption>
+              <figure class="img-zoom">
+                <img src="assets/honey.jpg" alt="Endulzantes" class="aspect-square w-full rounded-lg object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Endulzantes</figcaption>
               </figure>
             </div>
           </div>
@@ -234,67 +264,76 @@
     </div>
   </section>
 
-  <section id="servicios" class="bg-ink py-24 text-white">
+  <section id="servicios" class="bg-ink py-24 text-white lg:py-32">
     <div class="mx-auto max-w-7xl px-5 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
+      <div class="reveal mx-auto max-w-2xl text-center">
         <p class="text-[11px] uppercase tracking-brand gold-text">Corporativo</p>
-        <h2 class="mt-3 font-display text-4xl sm:text-5xl">Servicios Especializados</h2>
+        <h2 class="mt-4 font-display text-4xl sm:text-5xl">Servicios Especializados</h2>
         <div class="gold-line mx-auto mt-6 w-24"></div>
       </div>
 
-      <div class="mt-16 grid gap-8 lg:grid-cols-3">
-        <article class="gold-border rounded-2xl bg-white/[0.03] p-8">
-          <div class="mb-6 overflow-hidden rounded-xl">
-            <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=900&q=80" alt="Reuniones y capacitaciones" class="h-44 w-full object-cover" />
+      <div class="mt-16 space-y-8">
+        <article class="reveal grid overflow-hidden rounded-[24px] border border-gold/25 lg:grid-cols-2">
+          <div class="img-zoom min-h-[280px]">
+            <img src="assets/meeting.jpg" alt="Reuniones y capacitaciones" class="h-full w-full object-cover" />
           </div>
-          <span class="text-[11px] uppercase tracking-[0.2em] text-gold">01</span>
-          <h3 class="mt-2 font-display text-2xl">Reuniones y Capacitaciones</h3>
-          <p class="mt-3 text-sm font-medium text-white/90">
-            Packs individuales, coffee break y refrigerios para tus eventos corporativos.
-          </p>
-          <p class="mt-4 text-sm leading-relaxed text-white/60">
-            Armamos propuestas según la duración y el formato de tu jornada: packs individuales sellados, mesas de coffee break y refrigerios para reuniones, directorios y capacitaciones. Presentación limpia, porciones consistentes y puntualidad de servicio.
-          </p>
+          <div class="flex flex-col justify-center bg-white/[0.03] p-8 lg:p-12">
+            <span class="text-[11px] uppercase tracking-[0.28em] text-gold">01 — Eventos</span>
+            <h3 class="mt-3 font-display text-3xl">Reuniones y Capacitaciones</h3>
+            <p class="mt-4 text-sm font-medium text-white/90">
+              Packs individuales, coffee break y refrigerios para tus eventos corporativos.
+            </p>
+            <p class="mt-4 text-sm leading-relaxed text-white/55">
+              Armamos propuestas según la duración y el formato de tu jornada: packs individuales sellados, mesas de coffee break y refrigerios para reuniones, directorios y capacitaciones. Presentación limpia, porciones consistentes y puntualidad de servicio.
+            </p>
+          </div>
         </article>
 
-        <article class="gold-border rounded-2xl bg-white/[0.03] p-8">
-          <div class="mb-6 overflow-hidden rounded-xl">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80" alt="Colaciones" class="h-44 w-full object-cover" />
+        <article class="reveal grid overflow-hidden rounded-[24px] border border-gold/25 lg:grid-cols-2">
+          <div class="img-zoom min-h-[280px] lg:order-2">
+            <img src="assets/lunch.jpg" alt="Colaciones" class="h-full w-full object-cover" />
           </div>
-          <span class="text-[11px] uppercase tracking-[0.2em] text-gold">02</span>
-          <h3 class="mt-2 font-display text-2xl">Colaciones</h3>
-          <p class="mt-3 text-sm font-medium text-white/90">
-            Pedidos diarios o programados de colaciones para tu personal.
-          </p>
-          <p class="mt-4 text-sm leading-relaxed text-white/60">
-            Servicio recurrente para oficinas y faenas: colaciones diarias o con calendario semanal. Combinamos snacks, bebidas y opciones de cafetería para mantener al equipo abastecido sin interrumpir la operación.
-          </p>
+          <div class="flex flex-col justify-center bg-white/[0.03] p-8 lg:p-12">
+            <span class="text-[11px] uppercase tracking-[0.28em] text-gold">02 — Equipo</span>
+            <h3 class="mt-3 font-display text-3xl">Colaciones</h3>
+            <p class="mt-4 text-sm font-medium text-white/90">
+              Pedidos diarios o programados de colaciones para tu personal.
+            </p>
+            <p class="mt-4 text-sm leading-relaxed text-white/55">
+              Servicio recurrente para oficinas y faenas: colaciones diarias o con calendario semanal. Combinamos snacks, bebidas y opciones de cafetería para mantener al equipo abastecido sin interrumpir la operación.
+            </p>
+          </div>
         </article>
 
-        <article class="gold-border rounded-2xl bg-white/[0.03] p-8">
-          <div class="mb-6 overflow-hidden rounded-xl">
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80" alt="Pedidos especiales" class="h-44 w-full object-cover" />
+        <article class="reveal grid overflow-hidden rounded-[24px] border border-gold/25 lg:grid-cols-2">
+          <div class="img-zoom min-h-[280px]">
+            <img src="assets/cake.jpg" alt="Pedidos especiales" class="h-full w-full object-cover" />
           </div>
-          <span class="text-[11px] uppercase tracking-[0.2em] text-gold">03</span>
-          <h3 class="mt-2 font-display text-2xl">Pedidos Especiales</h3>
-          <p class="mt-3 text-sm font-medium text-white/90">
-            Tortas y dulces para cumpleaños, celebraciones internas, aniversarios y actividades de empresa.
-          </p>
-          <p class="mt-4 text-sm leading-relaxed text-white/60">
-            Elaboramos y coordinamos pedidos conmemorativos con presentación corporativa: tortas, dulces y arreglos para hitos internos, aniversarios de empresa y actividades de equipo, con despacho alineado a tu calendario.
-          </p>
+          <div class="flex flex-col justify-center bg-white/[0.03] p-8 lg:p-12">
+            <span class="text-[11px] uppercase tracking-[0.28em] text-gold">03 — Celebraciones</span>
+            <h3 class="mt-3 font-display text-3xl">Pedidos Especiales</h3>
+            <p class="mt-4 text-sm font-medium text-white/90">
+              Tortas y dulces para cumpleaños, celebraciones internas, aniversarios y actividades de empresa.
+            </p>
+            <p class="mt-4 text-sm leading-relaxed text-white/55">
+              Elaboramos y coordinamos pedidos conmemorativos con presentación corporativa: tortas, dulces y arreglos para hitos internos, aniversarios de empresa y actividades de equipo, con despacho alineado a tu calendario.
+            </p>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="nosotros" class="bg-[#FAF7F0] py-24">
-    <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
+  <section id="nosotros" class="bg-ivory py-24 lg:py-32">
+    <div class="reveal mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
       <div>
         <p class="text-[11px] uppercase tracking-brand text-gold-600">Tradición familiar</p>
-        <h2 class="mt-3 font-display text-4xl text-ink sm:text-5xl">Quiénes Somos</h2>
+        <h2 class="mt-4 font-display text-4xl text-ink sm:text-5xl">Quiénes Somos</h2>
         <div class="gold-line mt-6 w-24"></div>
-        <p class="mt-8 text-base leading-relaxed text-neutral-600">
+        <p class="mt-8 font-display text-2xl italic leading-snug text-ink/80">
+          “El detalle también es parte del servicio.”
+        </p>
+        <p class="mt-6 text-base leading-relaxed text-neutral-600">
           Familia Martínez Confitería nace de una tradición familiar puesta al servicio de empresas que valoran el detalle. Atendemos al público corporativo con un catálogo de snacks, bebidas y cafetería, y con servicios pensados para el ritmo de la oficina.
         </p>
         <p class="mt-4 text-base leading-relaxed text-neutral-600">
@@ -302,75 +341,74 @@
         </p>
       </div>
       <div class="relative">
-        <div class="absolute -inset-3 rounded-3xl border border-gold/40"></div>
-        <img
-          src="https://images.unsplash.com/photo-1549007994-cb92caebd546?auto=format&fit=crop&w=1200&q=80"
-          alt="Presentación de confitería"
-          class="relative h-[420px] w-full rounded-3xl object-cover"
-        />
+        <div class="absolute -inset-3 rounded-[28px] border border-gold/40"></div>
+        <img src="assets/about.jpg" alt="Presentación de confitería" class="relative h-[460px] w-full rounded-[28px] object-cover" />
       </div>
     </div>
   </section>
 
-  <section id="despacho" class="border-y border-gold/20 bg-ink py-16">
-    <div class="mx-auto flex max-w-4xl flex-col items-center px-5 text-center">
-      <div class="mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-gold/50 text-gold">
-        <i class="fa-solid fa-truck text-2xl"></i>
+  <section id="despacho" class="relative overflow-hidden">
+    <img src="assets/delivery.jpg" alt="Despacho a empresas" class="absolute inset-0 h-full w-full object-cover" />
+    <div class="absolute inset-0 bg-ink/80"></div>
+    <div class="relative mx-auto flex max-w-3xl flex-col items-center px-5 py-24 text-center">
+      <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-gold/60 text-gold">
+        <i class="fa-solid fa-truck text-xl"></i>
       </div>
-      <h2 class="font-display text-3xl text-white sm:text-4xl">Despacho</h2>
-      <p class="mt-4 max-w-2xl text-base leading-relaxed text-white/70">
+      <h2 class="font-display text-4xl text-white">Despacho</h2>
+      <div class="gold-line mx-auto mt-5 w-24"></div>
+      <p class="mt-6 max-w-xl text-base leading-relaxed text-white/75">
         Despacho: entrega directa a la empresa según volumen y ubicación.
       </p>
     </div>
   </section>
 
-  <section id="contacto" class="bg-[#FAF7F0] py-24">
+  <section id="contacto" class="bg-ivory py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-5 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
+      <div class="reveal mx-auto max-w-2xl text-center">
         <p class="text-[11px] uppercase tracking-brand text-gold-600">Conversemos</p>
-        <h2 class="mt-3 font-display text-4xl text-ink sm:text-5xl">Contacto</h2>
+        <h2 class="mt-4 font-display text-4xl text-ink sm:text-5xl">Contacto</h2>
         <div class="gold-line mx-auto mt-6 w-24"></div>
         <p class="mt-5 text-neutral-600">Solicite una cotización. Respondemos con una propuesta según su necesidad.</p>
       </div>
 
-      <div class="mt-14 grid gap-10 lg:grid-cols-5">
-        <aside class="space-y-6 lg:col-span-2">
-          <div class="gold-border rounded-2xl bg-white p-6">
+      <div class="mt-14 grid gap-8 lg:grid-cols-5">
+        <aside class="reveal space-y-4 lg:col-span-2">
+          <div class="rounded-2xl border border-gold/30 bg-white p-6">
             <p class="text-[11px] uppercase tracking-wider text-gold-600"><i class="fa-solid fa-envelope mr-2"></i>Correo</p>
             <p class="mt-2 text-ink">contacto@familiamartinez.cl</p>
           </div>
-          <div class="gold-border rounded-2xl bg-white p-6">
+          <div class="rounded-2xl border border-gold/30 bg-white p-6">
             <p class="text-[11px] uppercase tracking-wider text-gold-600"><i class="fa-solid fa-phone mr-2"></i>Teléfono</p>
             <p class="mt-2 text-ink">+56 9 XXXX XXXX</p>
           </div>
-          <div class="gold-border rounded-2xl bg-white p-6">
+          <div class="rounded-2xl border border-gold/30 bg-white p-6">
             <p class="text-[11px] uppercase tracking-wider text-gold-600"><i class="fa-solid fa-location-dot mr-2"></i>Dirección</p>
             <p class="mt-2 text-ink">Chile · Entrega directa a empresas</p>
           </div>
         </aside>
 
-        <form id="quoteForm" class="gold-border rounded-2xl bg-white p-6 sm:p-8 lg:col-span-3">
+        <form id="quoteForm" class="reveal rounded-[22px] border border-gold/30 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,.05)] sm:p-8 lg:col-span-3">
           <div class="grid gap-4 sm:grid-cols-2">
             <label class="block text-sm">
               <span class="mb-1.5 block text-neutral-600">Nombre</span>
-              <input required name="nombre" class="w-full rounded-lg border border-neutral-200 bg-[#FAF7F0] px-3 py-2.5 outline-none focus:border-gold" />
+              <input required name="nombre" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold" />
             </label>
             <label class="block text-sm">
               <span class="mb-1.5 block text-neutral-600">Empresa</span>
-              <input required name="empresa" class="w-full rounded-lg border border-neutral-200 bg-[#FAF7F0] px-3 py-2.5 outline-none focus:border-gold" />
+              <input required name="empresa" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold" />
             </label>
             <label class="block text-sm">
               <span class="mb-1.5 block text-neutral-600">Correo</span>
-              <input required type="email" name="email" class="w-full rounded-lg border border-neutral-200 bg-[#FAF7F0] px-3 py-2.5 outline-none focus:border-gold" />
+              <input required type="email" name="email" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold" />
             </label>
             <label class="block text-sm">
               <span class="mb-1.5 block text-neutral-600">Teléfono</span>
-              <input name="telefono" class="w-full rounded-lg border border-neutral-200 bg-[#FAF7F0] px-3 py-2.5 outline-none focus:border-gold" />
+              <input name="telefono" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold" />
             </label>
           </div>
           <label class="mt-4 block text-sm">
             <span class="mb-1.5 block text-neutral-600">Servicio de interés</span>
-            <select name="servicio" class="w-full rounded-lg border border-neutral-200 bg-[#FAF7F0] px-3 py-2.5 outline-none focus:border-gold">
+            <select name="servicio" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold">
               <option>Reuniones y Capacitaciones</option>
               <option>Colaciones</option>
               <option>Pedidos Especiales</option>
@@ -379,9 +417,9 @@
           </label>
           <label class="mt-4 block text-sm">
             <span class="mb-1.5 block text-neutral-600">Mensaje</span>
-            <textarea required name="mensaje" rows="4" class="w-full rounded-lg border border-neutral-200 bg-[#FAF7F0] px-3 py-2.5 outline-none focus:border-gold"></textarea>
+            <textarea required name="mensaje" rows="4" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold"></textarea>
           </label>
-          <button type="submit" class="mt-6 w-full rounded-full bg-ink py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-gold hover:text-ink">
+          <button type="submit" class="mt-6 w-full rounded-full bg-ink py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-gold hover:text-ink">
             Cotizar Ahora
           </button>
           <p id="formOk" class="mt-4 hidden text-center text-sm text-gold-800">Gracias. Recibimos su solicitud de cotización.</p>
@@ -394,7 +432,7 @@
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 sm:flex-row lg:px-8">
       <div class="flex items-center gap-3">
         <img src="assets/logo.png" alt="" class="h-10 w-auto" />
-        <p class="text-xs tracking-wide text-white/50">© 2026 Familia Martínez Confitería. Todos los derechos reservados.</p>
+        <p class="text-xs tracking-wide text-white/45">© 2026 Familia Martínez Confitería. Todos los derechos reservados.</p>
       </div>
       <div class="flex gap-4 text-gold">
         <a href="#" aria-label="Instagram" class="hover:text-white"><i class="fa-brands fa-instagram text-lg"></i></a>
@@ -407,9 +445,7 @@
   <script>
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
+    menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
     });
@@ -418,6 +454,12 @@
       document.getElementById("formOk").classList.remove("hidden");
       event.target.reset();
     });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-in");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>

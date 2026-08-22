@@ -38,6 +38,48 @@
   <style>
     html { scroll-behavior: smooth; }
     body { background: #070707; }
+    body.is-loading { overflow: hidden; }
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #070707;
+      transition: opacity .7s ease, visibility .7s ease;
+    }
+    #loader.is-done {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .loader-logo {
+      width: min(280px, 72vw);
+      animation: loaderPulse 2.2s ease-in-out infinite;
+    }
+    .loader-bar {
+      width: 88px;
+      height: 1px;
+      margin: 28px auto 0;
+      background: rgba(212,175,55,.22);
+      overflow: hidden;
+    }
+    .loader-bar span {
+      display: block;
+      height: 100%;
+      width: 40%;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+      animation: loaderSweep 1.4s ease-in-out infinite;
+    }
+    @keyframes loaderPulse {
+      0%, 100% { opacity: .72; transform: scale(.98); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes loaderSweep {
+      from { transform: translateX(-120%); }
+      to { transform: translateX(280%); }
+    }
     .gold-text {
       background: linear-gradient(180deg, #F6E7B0 0%, #D4AF37 48%, #9A7514 100%);
       -webkit-background-clip: text;
@@ -86,7 +128,13 @@
     }
   </style>
 </head>
-<body class="font-sans text-neutral-800 antialiased">
+<body class="is-loading font-sans text-neutral-800 antialiased">
+  <div id="loader" aria-hidden="true">
+    <div class="text-center">
+      <img src="assets/logo.png" alt="Familia Martínez Confitería" class="loader-logo" />
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
   <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/85 backdrop-blur-xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
       <a href="#inicio" class="flex items-center">
@@ -443,6 +491,16 @@
   </footer>
 
   <script>
+    const loader = document.getElementById("loader");
+    const hideLoader = () => {
+      loader.classList.add("is-done");
+      document.body.classList.remove("is-loading");
+    };
+    window.addEventListener("load", () => {
+      setTimeout(hideLoader, 1400);
+    });
+    setTimeout(hideLoader, 4000);
+
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
     menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));

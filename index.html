@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Familia Martínez Confitería | Sabor y Distinción para tu Empresa</title>
   <meta name="description" content="Familia Martínez Confitería: snacks, bebidas y cafetería para empresas. Coffee break, colaciones y pedidos especiales con despacho directo." />
-  <link rel="icon" href="assets/logo.png?v=2" />
+  <link rel="icon" href="assets/logo.png?v=3" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -16,294 +16,265 @@
       theme: {
         extend: {
           colors: {
-            ink: "#070707",
-            ivory: "#F4EEE3",
+            ink: "#3A2A1C",
+            linen: "#F4EDE1",
+            paper: "#FFF9F1",
+            cocoa: "#5C3D2E",
+            clay: "#B56A45",
+            olive: "#6F7A52",
             gold: {
-              50: "#FBF6E4",
-              100: "#F3E3A6",
-              DEFAULT: "#D4AF37",
-              600: "#B8941F",
-              800: "#7A5C12"
+              50: "#F8F1DE",
+              DEFAULT: "#C4A06A",
+              600: "#A07D3E",
+              800: "#6E5424"
             }
           },
           fontFamily: {
             display: ["Cormorant Garamond", "Georgia", "serif"],
-            sans: ["Outfit", "system-ui", "sans-serif"]
+            script: ["Great Vibes", "cursive"],
+            sans: ["Nunito", "system-ui", "sans-serif"]
           },
-          letterSpacing: { brand: "0.46em" }
+          letterSpacing: { brand: "0.38em" }
         }
       }
     };
   </script>
   <style>
     html { scroll-behavior: smooth; }
-    body { background: #070707; }
+    body {
+      background: #F4EDE1;
+      background-image:
+        radial-gradient(rgba(92,61,46,.04) 1px, transparent 1px),
+        linear-gradient(180deg, #F7F1E6 0%, #F4EDE1 40%, #EFE4D4 100%);
+      background-size: 18px 18px, 100% 100%;
+    }
     body.is-loading { overflow: hidden; }
     #loader {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #070707;
+      position: fixed; inset: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: center;
+      background: #F4EDE1;
       transition: opacity .7s ease, visibility .7s ease;
     }
-    #loader.is-done {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .loader-logo {
-      width: min(320px, 78vw);
-      animation: loaderPulse 2.2s ease-in-out infinite;
-    }
-    .loader-bar {
-      width: 88px;
-      height: 1px;
-      margin: 28px auto 0;
-      background: rgba(212,175,55,.22);
-      overflow: hidden;
-    }
+    #loader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo { width: min(320px, 78vw); animation: loaderPulse 2.2s ease-in-out infinite; }
+    .loader-bar { width: 96px; height: 2px; margin: 28px auto 0; background: rgba(181,106,69,.18); overflow: hidden; border-radius: 99px; }
     .loader-bar span {
-      display: block;
-      height: 100%;
-      width: 40%;
-      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+      display: block; height: 100%; width: 40%;
+      background: linear-gradient(90deg, transparent, #B56A45, transparent);
       animation: loaderSweep 1.4s ease-in-out infinite;
     }
     @keyframes loaderPulse {
-      0%, 100% { opacity: .72; transform: scale(.98); }
+      0%, 100% { opacity: .75; transform: scale(.98); }
       50% { opacity: 1; transform: scale(1); }
     }
-    @keyframes loaderSweep {
-      from { transform: translateX(-120%); }
-      to { transform: translateX(280%); }
+    @keyframes loaderSweep { from { transform: translateX(-120%); } to { transform: translateX(280%); } }
+    .ornament {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      color: #C4A06A; font-size: 11px; letter-spacing: .4em;
     }
-    .gold-text {
-      background: linear-gradient(180deg, #F6E7B0 0%, #D4AF37 48%, #9A7514 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .ornament::before, .ornament::after {
+      content: ""; height: 1px; width: 52px;
+      background: linear-gradient(90deg, transparent, #C4A06A, transparent);
     }
-    .gold-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    .paper-card {
+      background: #FFF9F1;
+      border: 1px solid rgba(92,61,46,.12);
+      box-shadow: 0 18px 40px rgba(58,42,28,.08);
     }
-    .gold-frame { box-shadow: inset 0 0 0 1px rgba(212,175,55,.45); }
-    .grain::after {
-      content: "";
-      pointer-events: none;
-      position: absolute;
-      inset: 0;
-      opacity: .09;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    }
-    .kenburns { animation: kenburns 28s ease-out forwards; }
-    @keyframes kenburns {
-      from { transform: scale(1); }
-      to { transform: scale(1.08); }
-    }
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.is-in { opacity: 1; transform: none; }
     .nav-link { position: relative; }
     .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0; right: 0; bottom: -8px;
-      height: 1px;
-      background: #D4AF37;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .3s ease;
+      content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 1px;
+      background: #B56A45; transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
     }
     .nav-link:hover::after { transform: scaleX(1); }
     .img-zoom { overflow: hidden; }
-    .img-zoom img { transition: transform .7s ease; }
-    .img-zoom:hover img { transform: scale(1.06); }
-    .marquee-track { animation: marquee 28s linear infinite; }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+    .img-zoom img { transition: transform .8s ease; }
+    .img-zoom:hover img { transform: scale(1.05); }
+    .kenburns { animation: kenburns 28s ease-out forwards; }
+    @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.07); } }
+    .marquee-track { animation: marquee 32s linear infinite; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .btn-clay {
+      background: #B56A45; color: #FFF9F1;
+      box-shadow: 0 10px 24px rgba(181,106,69,.28);
     }
+    .btn-clay:hover { background: #9D5737; }
   </style>
 </head>
-<body class="is-loading font-sans text-neutral-800 antialiased">
+<body class="is-loading font-sans text-ink antialiased">
   <div id="loader" aria-hidden="true">
     <div class="text-center">
-      <img src="assets/logo.png?v=2" alt="Familia Martínez Confitería" class="loader-logo" />
+      <img src="assets/logo.png?v=3" alt="Familia Martínez Confitería" class="loader-logo" />
+      <p class="mt-4 font-script text-3xl text-clay">hecho en casa</p>
       <div class="loader-bar"><span></span></div>
     </div>
   </div>
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/85 backdrop-blur-xl">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
+
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-cocoa/10 bg-linen/90 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-2.5 lg:px-8">
       <a href="#inicio" class="flex items-center">
-        <img src="assets/logo.png?v=2" alt="Familia Martínez Confitería" class="h-14 w-auto sm:h-[72px]" />
+        <img src="assets/logo.png?v=3" alt="Familia Martínez Confitería" class="h-14 w-auto rounded-2xl sm:h-[70px]" />
       </a>
-      <nav class="hidden items-center gap-9 text-[11px] font-medium uppercase tracking-[0.22em] text-white/75 lg:flex">
-        <a href="#inicio" class="nav-link hover:text-white">Inicio</a>
-        <a href="#productos" class="nav-link hover:text-white">Productos</a>
-        <a href="#servicios" class="nav-link hover:text-white">Servicios</a>
-        <a href="#nosotros" class="nav-link hover:text-white">Quiénes Somos</a>
-        <a href="#contacto" class="rounded-full border border-gold/70 px-5 py-2 text-gold transition hover:bg-gold hover:text-ink">Contacto</a>
+      <nav class="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-cocoa/80 lg:flex">
+        <a href="#inicio" class="nav-link hover:text-clay">Inicio</a>
+        <a href="#productos" class="nav-link hover:text-clay">Productos</a>
+        <a href="#servicios" class="nav-link hover:text-clay">Servicios</a>
+        <a href="#nosotros" class="nav-link hover:text-clay">Quiénes Somos</a>
+        <a href="#contacto" class="rounded-full bg-clay px-5 py-2 text-paper transition hover:bg-cocoa">Contacto</a>
       </nav>
-      <button id="menuBtn" class="text-white lg:hidden" aria-label="Abrir menú">
+      <button id="menuBtn" class="text-cocoa lg:hidden" aria-label="Abrir menú">
         <i class="fa-solid fa-bars text-lg"></i>
       </button>
     </div>
-    <div id="mobileMenu" class="hidden border-t border-white/10 bg-ink px-5 py-5 lg:hidden">
-      <div class="flex flex-col gap-4 text-xs uppercase tracking-[0.2em] text-white/85">
+    <div id="mobileMenu" class="hidden border-t border-cocoa/10 bg-linen px-5 py-5 lg:hidden">
+      <div class="flex flex-col gap-4 text-xs font-semibold uppercase tracking-[0.18em] text-cocoa">
         <a href="#inicio">Inicio</a>
         <a href="#productos">Productos</a>
         <a href="#servicios">Servicios</a>
         <a href="#nosotros">Quiénes Somos</a>
-        <a href="#contacto" class="text-gold">Contacto</a>
+        <a href="#contacto" class="text-clay">Contacto</a>
       </div>
     </div>
   </header>
 
-  <section id="inicio" class="relative min-h-screen overflow-hidden grain">
-    <img src="assets/hero.jpg" alt="Arreglo de confitería corporativa" class="kenburns absolute inset-0 h-full w-full object-cover" />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/85"></div>
-    <div class="pointer-events-none absolute inset-5 rounded-[28px] gold-frame sm:inset-8"></div>
+  <section id="inicio" class="relative min-h-screen overflow-hidden">
+    <img src="assets/cocina.jpg" alt="Cocina familiar de Familia Martínez" class="kenburns absolute inset-0 h-full w-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-b from-[#3A2A1C]/70 via-[#3A2A1C]/35 to-[#3A2A1C]/80"></div>
+    <div class="pointer-events-none absolute inset-4 rounded-[32px] border border-[#F4EDE1]/25 sm:inset-8"></div>
     <div class="relative mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 pb-20 pt-28 text-center">
-      <img src="assets/logo.png?v=2" alt="" class="mb-6 h-24 w-auto opacity-95 sm:h-28" />
-      <p class="text-[11px] uppercase tracking-brand gold-text">Confitería corporativa</p>
-      <div class="gold-line my-7 w-44"></div>
-      <h1 class="font-display text-[42px] font-semibold leading-[1.05] text-white sm:text-6xl md:text-7xl">
+      <p class="font-script text-4xl text-gold sm:text-5xl">sabor de casa</p>
+      <div class="ornament my-5 text-gold">✦</div>
+      <h1 class="font-display text-[42px] font-semibold leading-[1.08] text-paper sm:text-6xl md:text-7xl">
         Sabor y Distinción<br />para tu Empresa
       </h1>
-      <p class="mt-7 max-w-xl text-[15px] font-light leading-relaxed text-white/70 sm:text-lg">
-        Snacks, bebidas y cafetería con el sello de Familia Martínez. Calidad, puntualidad y una presentación a la altura de su marca.
+      <p class="mt-6 max-w-xl text-[15px] leading-relaxed text-paper/80 sm:text-lg">
+        Snacks, bebidas, cafetería y almuerzos caseros con el sello de Familia Martínez. Cercanía, puntualidad y el calor de un plato hecho como en familia.
       </p>
       <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-        <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gold px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink transition hover:bg-gold-100">
+        <a href="#contacto" class="btn-clay inline-flex items-center gap-3 rounded-full px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em]">
           Cotizar Ahora <i class="fa-solid fa-arrow-right text-[10px]"></i>
         </a>
-        <a href="#productos" class="text-[11px] uppercase tracking-[0.22em] text-white/70 hover:text-gold">Ver catálogo</a>
+        <a href="#productos" class="text-[11px] font-semibold uppercase tracking-[0.2em] text-paper/80 hover:text-gold">Ver catálogo</a>
       </div>
     </div>
   </section>
 
-  <div class="overflow-hidden border-y border-gold/25 bg-ink py-4">
-    <div class="marquee-track flex w-max gap-10 text-[11px] uppercase tracking-[0.35em] text-gold">
-      <span>Cercanía</span><span>·</span><span>Compromiso</span><span>·</span><span>Calidad</span><span>·</span><span>Puntualidad</span><span>·</span>
-      <span>Cercanía</span><span>·</span><span>Compromiso</span><span>·</span><span>Calidad</span><span>·</span><span>Puntualidad</span><span>·</span>
-      <span>Cercanía</span><span>·</span><span>Compromiso</span><span>·</span><span>Calidad</span><span>·</span><span>Puntualidad</span><span>·</span>
-      <span>Cercanía</span><span>·</span><span>Compromiso</span><span>·</span><span>Calidad</span><span>·</span><span>Puntualidad</span><span>·</span>
+  <div class="overflow-hidden border-y border-cocoa/10 bg-paper py-3.5">
+    <div class="marquee-track flex w-max gap-10 text-[11px] font-semibold uppercase tracking-[0.32em] text-clay">
+      <span>Hecho en casa</span><span>✦</span><span>Cercanía</span><span>✦</span><span>Sabor familiar</span><span>✦</span><span>Puntualidad</span><span>✦</span>
+      <span>Hecho en casa</span><span>✦</span><span>Cercanía</span><span>✦</span><span>Sabor familiar</span><span>✦</span><span>Puntualidad</span><span>✦</span>
+      <span>Hecho en casa</span><span>✦</span><span>Cercanía</span><span>✦</span><span>Sabor familiar</span><span>✦</span><span>Puntualidad</span><span>✦</span>
     </div>
   </div>
 
-  <section id="productos" class="bg-ivory py-24 lg:py-32">
+  <section id="productos" class="py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-5 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-[11px] uppercase tracking-brand text-gold-600">Catálogo</p>
-        <h2 class="mt-4 font-display text-4xl text-ink sm:text-5xl">Productos</h2>
-        <div class="gold-line mx-auto mt-6 w-24"></div>
+        <p class="font-script text-3xl text-clay">nuestro horno</p>
+        <h2 class="mt-2 font-display text-4xl sm:text-5xl">Productos</h2>
+        <div class="ornament mx-auto mt-5">✦</div>
       </div>
 
       <div class="mt-16 grid gap-8 lg:grid-cols-3">
-        <article class="reveal overflow-hidden rounded-[22px] border border-gold/30 bg-white shadow-[0_20px_50px_rgba(0,0,0,.06)]">
+        <article class="reveal paper-card overflow-hidden rounded-[28px]">
           <div class="img-zoom relative h-56">
             <img src="assets/chocolate.jpg" alt="Snacks y confites" class="h-full w-full object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
             <div class="absolute bottom-5 left-5">
-              <p class="text-[10px] uppercase tracking-[0.25em] text-gold">01</p>
-              <h3 class="font-display text-3xl text-white">Snacks y Confites</h3>
+              <p class="font-script text-2xl text-gold">01</p>
+              <h3 class="font-display text-3xl text-paper">Snacks y Confites</h3>
             </div>
           </div>
           <div class="p-6">
-            <p class="text-sm leading-relaxed text-neutral-600">
+            <p class="text-sm leading-relaxed text-cocoa/75">
               Disfruta de nuestros chocolates, galletas, barras de cereal, frutos secos, caramelos, y más.
             </p>
             <div class="mt-5 grid grid-cols-5 gap-2">
               <figure class="img-zoom col-span-2">
-                <img src="assets/chocolate.jpg" alt="Chocolates" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Chocolates</figcaption>
+                <img src="assets/chocolate.jpg" alt="Chocolates" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Chocolates</figcaption>
               </figure>
               <figure class="img-zoom col-span-3">
-                <img src="assets/cookies.jpg" alt="Galletas" class="aspect-[2/1] h-full w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Galletas</figcaption>
+                <img src="assets/cookies.jpg" alt="Galletas" class="aspect-[2/1] h-full w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Galletas</figcaption>
               </figure>
               <figure class="img-zoom">
-                <img src="assets/granola.jpg" alt="Barras de cereal" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Cereal</figcaption>
+                <img src="assets/granola.jpg" alt="Barras de cereal" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Cereal</figcaption>
               </figure>
               <figure class="img-zoom">
-                <img src="assets/nuts.jpg" alt="Frutos secos" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Frutos secos</figcaption>
+                <img src="assets/nuts.jpg" alt="Frutos secos" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Frutos secos</figcaption>
               </figure>
               <figure class="img-zoom col-span-3">
-                <img src="assets/candy.jpg" alt="Caramelos" class="aspect-[3/1] h-full w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Caramelos</figcaption>
+                <img src="assets/candy.jpg" alt="Caramelos" class="aspect-[3/1] h-full w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Caramelos</figcaption>
               </figure>
             </div>
           </div>
         </article>
 
-        <article class="reveal overflow-hidden rounded-[22px] border border-gold/30 bg-white shadow-[0_20px_50px_rgba(0,0,0,.06)]">
+        <article class="reveal paper-card overflow-hidden rounded-[28px]">
           <div class="img-zoom relative h-56">
             <img src="assets/juice.jpg" alt="Bebidas" class="h-full w-full object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
             <div class="absolute bottom-5 left-5">
-              <p class="text-[10px] uppercase tracking-[0.25em] text-gold">02</p>
-              <h3 class="font-display text-3xl text-white">Bebidas</h3>
+              <p class="font-script text-2xl text-gold">02</p>
+              <h3 class="font-display text-3xl text-paper">Bebidas</h3>
             </div>
           </div>
           <div class="p-6">
-            <p class="text-sm leading-relaxed text-neutral-600">
-              Ofrecemos bebidas, jugos, aguas y energéticas.
-            </p>
+            <p class="text-sm leading-relaxed text-cocoa/75">Ofrecemos bebidas, jugos, aguas y energéticas.</p>
             <div class="mt-5 grid grid-cols-2 gap-2">
               <figure class="img-zoom">
-                <img src="assets/soda.jpg" alt="Bebidas" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Bebidas</figcaption>
+                <img src="assets/soda.jpg" alt="Bebidas" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Bebidas</figcaption>
               </figure>
               <figure class="img-zoom">
-                <img src="assets/juice.jpg" alt="Jugos" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Jugos</figcaption>
+                <img src="assets/juice.jpg" alt="Jugos" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Jugos</figcaption>
               </figure>
               <figure class="img-zoom">
-                <img src="assets/water.jpg" alt="Aguas" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Aguas</figcaption>
+                <img src="assets/water.jpg" alt="Aguas" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Aguas</figcaption>
               </figure>
               <figure class="img-zoom">
-                <img src="assets/energy.jpg" alt="Energéticas" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Energéticas</figcaption>
+                <img src="assets/energy.jpg" alt="Energéticas" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Energéticas</figcaption>
               </figure>
             </div>
           </div>
         </article>
 
-        <article class="reveal overflow-hidden rounded-[22px] border border-gold/30 bg-white shadow-[0_20px_50px_rgba(0,0,0,.06)]">
+        <article class="reveal paper-card overflow-hidden rounded-[28px]">
           <div class="img-zoom relative h-56">
             <img src="assets/coffee.jpg" alt="Cafetería" class="h-full w-full object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
             <div class="absolute bottom-5 left-5">
-              <p class="text-[10px] uppercase tracking-[0.25em] text-gold">03</p>
-              <h3 class="font-display text-3xl text-white">Cafetería</h3>
+              <p class="font-script text-2xl text-gold">03</p>
+              <h3 class="font-display text-3xl text-paper">Cafetería</h3>
             </div>
           </div>
           <div class="p-6">
-            <p class="text-sm leading-relaxed text-neutral-600">
-              Todo para tu pausa: café, té, azúcar y endulzantes.
-            </p>
+            <p class="text-sm leading-relaxed text-cocoa/75">Todo para tu pausa: café, té, azúcar y endulzantes.</p>
             <div class="mt-5 grid grid-cols-2 gap-2">
               <figure class="img-zoom">
-                <img src="assets/coffee2.jpg" alt="Café" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Café</figcaption>
+                <img src="assets/coffee2.jpg" alt="Café" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Café</figcaption>
               </figure>
               <figure class="img-zoom">
-                <img src="assets/tea.jpg" alt="Té" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Té</figcaption>
+                <img src="assets/tea.jpg" alt="Té" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Té</figcaption>
               </figure>
               <figure class="img-zoom">
-                <img src="assets/sugar.jpg" alt="Azúcar" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Azúcar</figcaption>
+                <img src="assets/sugar.jpg" alt="Azúcar" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Azúcar</figcaption>
               </figure>
               <figure class="img-zoom">
-                <img src="assets/honey.jpg" alt="Endulzantes" class="aspect-square w-full rounded-lg object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-neutral-500">Endulzantes</figcaption>
+                <img src="assets/honey.jpg" alt="Endulzantes" class="aspect-square w-full rounded-2xl object-cover" />
+                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Endulzantes</figcaption>
               </figure>
             </div>
           </div>
@@ -312,63 +283,66 @@
     </div>
   </section>
 
-  <section id="servicios" class="bg-ink py-24 text-white lg:py-32">
-    <div class="mx-auto max-w-7xl px-5 lg:px-8">
-      <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-[11px] uppercase tracking-brand gold-text">Corporativo</p>
-        <h2 class="mt-4 font-display text-4xl sm:text-5xl">Servicios Especializados</h2>
-        <div class="gold-line mx-auto mt-6 w-24"></div>
+  <section id="servicios" class="relative py-24 lg:py-32">
+    <div class="absolute inset-0 bg-cocoa"></div>
+    <div class="absolute inset-0 opacity-20" style="background-image:url('assets/lunch-casero.jpg'); background-size:cover; background-position:center;"></div>
+    <div class="absolute inset-0 bg-cocoa/82"></div>
+    <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center text-paper">
+        <p class="font-script text-3xl text-gold">para tu equipo</p>
+        <h2 class="mt-2 font-display text-4xl sm:text-5xl">Servicios Especializados</h2>
+        <div class="ornament mx-auto mt-5 text-gold">✦</div>
       </div>
 
       <div class="mt-16 space-y-8">
-        <article class="reveal grid overflow-hidden rounded-[24px] border border-gold/25 lg:grid-cols-2">
+        <article class="reveal grid overflow-hidden rounded-[28px] border border-paper/10 bg-paper/5 lg:grid-cols-2">
           <div class="img-zoom min-h-[280px]">
             <img src="assets/meeting.jpg" alt="Reuniones y capacitaciones" class="h-full w-full object-cover" />
           </div>
-          <div class="flex flex-col justify-center bg-white/[0.03] p-8 lg:p-12">
-            <span class="text-[11px] uppercase tracking-[0.28em] text-gold">01 — Eventos</span>
-            <h3 class="mt-3 font-display text-3xl">Reuniones y Capacitaciones</h3>
-            <p class="mt-4 text-sm font-medium text-white/90">
+          <div class="flex flex-col justify-center p-8 text-paper lg:p-12">
+            <span class="font-script text-2xl text-gold">01 — Eventos</span>
+            <h3 class="mt-2 font-display text-3xl">Reuniones y Capacitaciones</h3>
+            <p class="mt-4 text-sm font-medium text-paper/90">
               Packs individuales, coffee break y refrigerios para tus eventos corporativos.
             </p>
-            <p class="mt-4 text-sm leading-relaxed text-white/55">
+            <p class="mt-4 text-sm leading-relaxed text-paper/65">
               Armamos propuestas según la duración y el formato de tu jornada: packs individuales sellados, mesas de coffee break y refrigerios para reuniones, directorios y capacitaciones. Presentación limpia, porciones consistentes y puntualidad de servicio.
             </p>
           </div>
         </article>
 
-        <article class="reveal grid overflow-hidden rounded-[24px] border border-gold/25 lg:grid-cols-2">
+        <article class="reveal grid overflow-hidden rounded-[28px] border border-gold/30 bg-paper lg:grid-cols-2">
           <div class="img-zoom min-h-[320px] lg:order-2">
             <img src="assets/lunch-casero.jpg" alt="Almuerzos caseros para colaciones" class="h-full w-full object-cover" />
           </div>
-          <div class="flex flex-col justify-center bg-white/[0.03] p-8 lg:p-12">
-            <span class="text-[11px] uppercase tracking-[0.28em] text-gold">02 — Sabor de casa</span>
-            <h3 class="mt-3 font-display text-3xl">Colaciones y Almuerzos</h3>
-            <p class="mt-4 text-sm font-medium text-white/90">
+          <div class="flex flex-col justify-center p-8 lg:p-12">
+            <span class="font-script text-2xl text-clay">02 — Sabor de casa</span>
+            <h3 class="mt-2 font-display text-3xl text-ink">Colaciones y Almuerzos</h3>
+            <p class="mt-4 text-sm font-medium text-cocoa">
               Pedidos diarios o programados de colaciones para tu personal: almuerzos con sabor familiar, artesanales y caseros.
             </p>
-            <p class="mt-4 text-sm leading-relaxed text-white/55">
+            <p class="mt-4 text-sm leading-relaxed text-cocoa/70">
               Pensamos cada colación como un almuerzo de casa. Preparaciones hogareñas, hechas con cariño y pensadas para que el colaborador se sienta cuidado en su jornada: recetas simples, porciones generosas y esa calidez de un plato familiar, con pedidos diarios o calendario semanal para oficinas y faenas.
             </p>
-            <ul class="mt-5 space-y-2 text-sm text-white/70">
-              <li class="flex gap-3"><span class="text-gold">·</span> Almuerzos con enfoque casero y artesanal</li>
-              <li class="flex gap-3"><span class="text-gold">·</span> Sabor hogareño, como en familia</li>
-              <li class="flex gap-3"><span class="text-gold">·</span> Entrega diaria o programada según su operación</li>
+            <ul class="mt-5 space-y-2 text-sm text-cocoa/80">
+              <li class="flex gap-3"><span class="text-clay">✦</span> Almuerzos con enfoque casero y artesanal</li>
+              <li class="flex gap-3"><span class="text-clay">✦</span> Sabor hogareño, como en familia</li>
+              <li class="flex gap-3"><span class="text-clay">✦</span> Entrega diaria o programada según su operación</li>
             </ul>
           </div>
         </article>
 
-        <article class="reveal grid overflow-hidden rounded-[24px] border border-gold/25 lg:grid-cols-2">
+        <article class="reveal grid overflow-hidden rounded-[28px] border border-paper/10 bg-paper/5 lg:grid-cols-2">
           <div class="img-zoom min-h-[280px]">
             <img src="assets/cake.jpg" alt="Pedidos especiales" class="h-full w-full object-cover" />
           </div>
-          <div class="flex flex-col justify-center bg-white/[0.03] p-8 lg:p-12">
-            <span class="text-[11px] uppercase tracking-[0.28em] text-gold">03 — Celebraciones</span>
-            <h3 class="mt-3 font-display text-3xl">Pedidos Especiales</h3>
-            <p class="mt-4 text-sm font-medium text-white/90">
+          <div class="flex flex-col justify-center p-8 text-paper lg:p-12">
+            <span class="font-script text-2xl text-gold">03 — Celebraciones</span>
+            <h3 class="mt-2 font-display text-3xl">Pedidos Especiales</h3>
+            <p class="mt-4 text-sm font-medium text-paper/90">
               Tortas y dulces para cumpleaños, celebraciones internas, aniversarios y actividades de empresa.
             </p>
-            <p class="mt-4 text-sm leading-relaxed text-white/55">
+            <p class="mt-4 text-sm leading-relaxed text-paper/65">
               Elaboramos y coordinamos pedidos conmemorativos con presentación corporativa: tortas, dulces y arreglos para hitos internos, aniversarios de empresa y actividades de equipo, con despacho alineado a tu calendario.
             </p>
           </div>
@@ -377,37 +351,37 @@
     </div>
   </section>
 
-  <section id="nosotros" class="bg-ivory py-24 lg:py-32">
+  <section id="nosotros" class="py-24 lg:py-32">
     <div class="reveal mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
       <div>
-        <p class="text-[11px] uppercase tracking-brand text-gold-600">Familia Martínez SpA</p>
-        <h2 class="mt-4 font-display text-4xl text-ink sm:text-5xl">Quiénes Somos</h2>
-        <div class="gold-line mt-6 w-24"></div>
-        <p class="mt-8 font-display text-2xl italic leading-snug text-ink/80">
+        <p class="font-script text-3xl text-clay">nuestra mesa</p>
+        <h2 class="mt-2 font-display text-4xl sm:text-5xl">Quiénes Somos</h2>
+        <div class="ornament mt-5 justify-start">✦</div>
+        <p class="mt-8 font-display text-2xl italic leading-snug text-cocoa">
           “Detrás de cada pedido hay personas que trabajan, se esfuerzan y necesitan sentirse consideradas.”
         </p>
-        <p class="mt-6 text-base leading-relaxed text-neutral-600">
+        <p class="mt-6 text-base leading-relaxed text-cocoa/75">
           En Familia Martínez SpA entendemos que alimentar a una empresa es cuidar a quienes la hacen posible. Brindamos soluciones de alimentación y abastecimiento poniendo en el centro a los colaboradores y su bienestar cotidiano, con un servicio cercano, responsable, puntual y de calidad.
         </p>
       </div>
       <div class="relative">
-        <div class="absolute -inset-3 rounded-[28px] border border-gold/40"></div>
-        <img src="assets/cocina.jpg" alt="Cocina artesanal y casera" class="relative h-[460px] w-full rounded-[28px] object-cover" />
+        <div class="absolute -left-4 top-8 hidden h-40 w-40 rounded-full bg-clay/15 blur-2xl lg:block"></div>
+        <img src="assets/about.jpg" alt="Confitería artesanal" class="relative h-[460px] w-full rounded-[32px] object-cover shadow-[0_24px_50px_rgba(58,42,28,.18)]" />
       </div>
     </div>
 
     <div class="mx-auto mt-20 grid max-w-7xl gap-8 px-5 lg:grid-cols-2 lg:px-8">
-      <article class="reveal rounded-[22px] border border-gold/30 bg-white p-8">
-        <p class="text-[11px] uppercase tracking-[0.28em] text-gold-600">Misión</p>
-        <h3 class="mt-3 font-display text-3xl text-ink">Nuestra misión</h3>
-        <p class="mt-5 text-sm leading-relaxed text-neutral-600">
+      <article class="reveal paper-card rounded-[28px] p-8">
+        <p class="font-script text-2xl text-clay">Misión</p>
+        <h3 class="mt-1 font-display text-3xl">Nuestra misión</h3>
+        <p class="mt-5 text-sm leading-relaxed text-cocoa/75">
           Brindar soluciones de alimentación y abastecimiento para empresas, poniendo en el centro a sus colaboradores y su bienestar cotidiano. En Familia Martínez SpA entendemos que detrás de cada pedido hay personas que trabajan, cumplen turnos, se esfuerzan y necesitan sentirse consideradas. Por eso, nos comprometemos a entregar un servicio cercano, responsable, puntual y de calidad, que contribuya a hacer más agradable y humana su jornada laboral.
         </p>
       </article>
-      <article class="reveal rounded-[22px] border border-gold/30 bg-white p-8">
-        <p class="text-[11px] uppercase tracking-[0.28em] text-gold-600">Visión</p>
-        <h3 class="mt-3 font-display text-3xl text-ink">Nuestra visión</h3>
-        <p class="mt-5 text-sm leading-relaxed text-neutral-600">
+      <article class="reveal paper-card rounded-[28px] p-8">
+        <p class="font-script text-2xl text-clay">Visión</p>
+        <h3 class="mt-1 font-display text-3xl">Nuestra visión</h3>
+        <p class="mt-5 text-sm leading-relaxed text-cocoa/75">
           Ser una empresa reconocida por acompañar a las organizaciones cuidando a quienes las hacen posibles: sus colaboradores. Aspiramos a convertirnos en un proveedor de confianza para las empresas, destacándonos por nuestra cercanía, compromiso, puntualidad y calidad, y creciendo de manera sostenible sin perder el enfoque humano que inspira nuestro servicio.
         </p>
       </article>
@@ -415,111 +389,85 @@
 
     <div class="reveal mx-auto mt-16 max-w-7xl px-5 lg:px-8">
       <div class="mb-10 text-center">
-        <p class="text-[11px] uppercase tracking-brand text-gold-600">Lo que nos guía</p>
-        <h3 class="mt-3 font-display text-4xl text-ink">Valores</h3>
-        <div class="gold-line mx-auto mt-5 w-24"></div>
+        <p class="font-script text-3xl text-clay">lo que nos guía</p>
+        <h3 class="mt-1 font-display text-4xl">Valores</h3>
+        <div class="ornament mx-auto mt-5">✦</div>
       </div>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <article class="rounded-2xl border border-gold/25 bg-white p-6">
-          <h4 class="font-display text-xl text-ink">Compromiso</h4>
-          <p class="mt-2 text-sm leading-relaxed text-neutral-600">Nos involucramos de verdad en las necesidades de cada empresa y de sus colaboradores.</p>
-        </article>
-        <article class="rounded-2xl border border-gold/25 bg-white p-6">
-          <h4 class="font-display text-xl text-ink">Cercanía</h4>
-          <p class="mt-2 text-sm leading-relaxed text-neutral-600">Entregamos una atención humana, amable y personalizada.</p>
-        </article>
-        <article class="rounded-2xl border border-gold/25 bg-white p-6">
-          <h4 class="font-display text-xl text-ink">Responsabilidad</h4>
-          <p class="mt-2 text-sm leading-relaxed text-neutral-600">Cumplimos nuestros compromisos con seriedad y dedicación.</p>
-        </article>
-        <article class="rounded-2xl border border-gold/25 bg-white p-6">
-          <h4 class="font-display text-xl text-ink">Puntualidad</h4>
-          <p class="mt-2 text-sm leading-relaxed text-neutral-600">Respetamos los horarios acordados y entendemos la importancia de cada jornada laboral.</p>
-        </article>
-        <article class="rounded-2xl border border-gold/25 bg-white p-6">
-          <h4 class="font-display text-xl text-ink">Calidad</h4>
-          <p class="mt-2 text-sm leading-relaxed text-neutral-600">Buscamos entregar productos y preparaciones en buenas condiciones, cuidando cada detalle.</p>
-        </article>
-        <article class="rounded-2xl border border-gold/25 bg-white p-6">
-          <h4 class="font-display text-xl text-ink">Confianza</h4>
-          <p class="mt-2 text-sm leading-relaxed text-neutral-600">Construimos relaciones transparentes y duraderas con nuestros clientes.</p>
-        </article>
-        <article class="rounded-2xl border border-gold/25 bg-white p-6">
-          <h4 class="font-display text-xl text-ink">Trabajo en equipo</h4>
-          <p class="mt-2 text-sm leading-relaxed text-neutral-600">Valoramos la colaboración y el respeto entre las personas.</p>
-        </article>
-        <article class="rounded-2xl border border-gold/25 bg-white p-6">
-          <h4 class="font-display text-xl text-ink">Mejora continua</h4>
-          <p class="mt-2 text-sm leading-relaxed text-neutral-600">Buscamos aprender y mejorar constantemente nuestro servicio.</p>
-        </article>
+        <article class="paper-card rounded-[22px] p-6"><h4 class="font-display text-xl">Compromiso</h4><p class="mt-2 text-sm leading-relaxed text-cocoa/70">Nos involucramos de verdad en las necesidades de cada empresa y de sus colaboradores.</p></article>
+        <article class="paper-card rounded-[22px] p-6"><h4 class="font-display text-xl">Cercanía</h4><p class="mt-2 text-sm leading-relaxed text-cocoa/70">Entregamos una atención humana, amable y personalizada.</p></article>
+        <article class="paper-card rounded-[22px] p-6"><h4 class="font-display text-xl">Responsabilidad</h4><p class="mt-2 text-sm leading-relaxed text-cocoa/70">Cumplimos nuestros compromisos con seriedad y dedicación.</p></article>
+        <article class="paper-card rounded-[22px] p-6"><h4 class="font-display text-xl">Puntualidad</h4><p class="mt-2 text-sm leading-relaxed text-cocoa/70">Respetamos los horarios acordados y entendemos la importancia de cada jornada laboral.</p></article>
+        <article class="paper-card rounded-[22px] p-6"><h4 class="font-display text-xl">Calidad</h4><p class="mt-2 text-sm leading-relaxed text-cocoa/70">Buscamos entregar productos y preparaciones en buenas condiciones, cuidando cada detalle.</p></article>
+        <article class="paper-card rounded-[22px] p-6"><h4 class="font-display text-xl">Confianza</h4><p class="mt-2 text-sm leading-relaxed text-cocoa/70">Construimos relaciones transparentes y duraderas con nuestros clientes.</p></article>
+        <article class="paper-card rounded-[22px] p-6"><h4 class="font-display text-xl">Trabajo en equipo</h4><p class="mt-2 text-sm leading-relaxed text-cocoa/70">Valoramos la colaboración y el respeto entre las personas.</p></article>
+        <article class="paper-card rounded-[22px] p-6"><h4 class="font-display text-xl">Mejora continua</h4><p class="mt-2 text-sm leading-relaxed text-cocoa/70">Buscamos aprender y mejorar constantemente nuestro servicio.</p></article>
       </div>
     </div>
   </section>
 
   <section id="despacho" class="relative overflow-hidden">
     <img src="assets/delivery.jpg" alt="Despacho a empresas" class="absolute inset-0 h-full w-full object-cover" />
-    <div class="absolute inset-0 bg-ink/80"></div>
-    <div class="relative mx-auto flex max-w-3xl flex-col items-center px-5 py-24 text-center">
-      <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-gold/60 text-gold">
-        <i class="fa-solid fa-truck text-xl"></i>
-      </div>
-      <h2 class="font-display text-4xl text-white">Despacho</h2>
-      <div class="gold-line mx-auto mt-5 w-24"></div>
-      <p class="mt-6 max-w-xl text-base leading-relaxed text-white/75">
+    <div class="absolute inset-0 bg-cocoa/78"></div>
+    <div class="relative mx-auto flex max-w-3xl flex-col items-center px-5 py-24 text-center text-paper">
+      <p class="font-script text-3xl text-gold">a tu puerta</p>
+      <h2 class="mt-2 font-display text-4xl">Despacho</h2>
+      <div class="ornament mx-auto mt-5 text-gold">✦</div>
+      <p class="mt-6 max-w-xl text-base leading-relaxed text-paper/80">
         Despacho: entrega directa a la empresa según volumen y ubicación.
       </p>
     </div>
   </section>
 
-  <section id="contacto" class="bg-ivory py-24 lg:py-32">
+  <section id="contacto" class="py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-5 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-[11px] uppercase tracking-brand text-gold-600">Conversemos</p>
-        <h2 class="mt-4 font-display text-4xl text-ink sm:text-5xl">Contacto</h2>
-        <div class="gold-line mx-auto mt-6 w-24"></div>
-        <p class="mt-5 text-neutral-600">Solicite una cotización. Respondemos con una propuesta según su necesidad.</p>
+        <p class="font-script text-3xl text-clay">conversemos</p>
+        <h2 class="mt-2 font-display text-4xl sm:text-5xl">Contacto</h2>
+        <div class="ornament mx-auto mt-5">✦</div>
+        <p class="mt-5 text-cocoa/75">Solicite una cotización. Respondemos con una propuesta según su necesidad.</p>
       </div>
 
       <div class="mt-14 grid gap-8 lg:grid-cols-5">
         <aside class="reveal space-y-4 lg:col-span-2">
-          <div class="rounded-2xl border border-gold/30 bg-white p-6">
-            <p class="text-[11px] uppercase tracking-wider text-gold-600"><i class="fa-solid fa-envelope mr-2"></i>Correo</p>
-            <p class="mt-2 text-ink">contacto@familiamartinez.cl</p>
+          <div class="paper-card rounded-[22px] p-6">
+            <p class="text-[11px] font-semibold uppercase tracking-wider text-clay"><i class="fa-solid fa-envelope mr-2"></i>Correo</p>
+            <p class="mt-2">contacto@familiamartinez.cl</p>
           </div>
-          <div class="rounded-2xl border border-gold/30 bg-white p-6">
-            <p class="text-[11px] uppercase tracking-wider text-gold-600"><i class="fa-solid fa-phone mr-2"></i>Teléfonos</p>
-            <p class="mt-2 text-ink">Línea 1 · +56 9 XXXX XXXX</p>
-            <p class="mt-1 text-ink">Línea 2 · +56 9 XXXX XXXX</p>
-            <p class="mt-3 text-xs text-neutral-500">Dos números de contacto. Se publican apenas se confirme el plan.</p>
+          <div class="paper-card rounded-[22px] p-6">
+            <p class="text-[11px] font-semibold uppercase tracking-wider text-clay"><i class="fa-solid fa-phone mr-2"></i>Teléfonos</p>
+            <p class="mt-2">Línea 1 · +56 9 XXXX XXXX</p>
+            <p class="mt-1">Línea 2 · +56 9 XXXX XXXX</p>
+            <p class="mt-3 text-xs text-cocoa/55">Dos números de contacto. Se publican apenas se confirme el plan.</p>
           </div>
-          <div class="rounded-2xl border border-gold/30 bg-white p-6">
-            <p class="text-[11px] uppercase tracking-wider text-gold-600"><i class="fa-solid fa-location-dot mr-2"></i>Dirección</p>
-            <p class="mt-2 text-ink">Chile · Entrega directa a empresas</p>
+          <div class="paper-card rounded-[22px] p-6">
+            <p class="text-[11px] font-semibold uppercase tracking-wider text-clay"><i class="fa-solid fa-location-dot mr-2"></i>Dirección</p>
+            <p class="mt-2">Chile · Entrega directa a empresas</p>
           </div>
         </aside>
 
-        <form id="quoteForm" class="reveal rounded-[22px] border border-gold/30 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,.05)] sm:p-8 lg:col-span-3">
+        <form id="quoteForm" class="reveal paper-card rounded-[28px] p-6 sm:p-8 lg:col-span-3">
           <div class="grid gap-4 sm:grid-cols-2">
             <label class="block text-sm">
-              <span class="mb-1.5 block text-neutral-600">Nombre</span>
-              <input required name="nombre" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold" />
+              <span class="mb-1.5 block text-cocoa/70">Nombre</span>
+              <input required name="nombre" class="w-full rounded-2xl border border-cocoa/15 bg-linen px-3 py-2.5 outline-none focus:border-clay" />
             </label>
             <label class="block text-sm">
-              <span class="mb-1.5 block text-neutral-600">Empresa</span>
-              <input required name="empresa" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold" />
+              <span class="mb-1.5 block text-cocoa/70">Empresa</span>
+              <input required name="empresa" class="w-full rounded-2xl border border-cocoa/15 bg-linen px-3 py-2.5 outline-none focus:border-clay" />
             </label>
             <label class="block text-sm">
-              <span class="mb-1.5 block text-neutral-600">Correo</span>
-              <input required type="email" name="email" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold" />
+              <span class="mb-1.5 block text-cocoa/70">Correo</span>
+              <input required type="email" name="email" class="w-full rounded-2xl border border-cocoa/15 bg-linen px-3 py-2.5 outline-none focus:border-clay" />
             </label>
             <label class="block text-sm">
-              <span class="mb-1.5 block text-neutral-600">Teléfono</span>
-              <input name="telefono" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold" />
+              <span class="mb-1.5 block text-cocoa/70">Teléfono</span>
+              <input name="telefono" class="w-full rounded-2xl border border-cocoa/15 bg-linen px-3 py-2.5 outline-none focus:border-clay" />
             </label>
           </div>
           <label class="mt-4 block text-sm">
-            <span class="mb-1.5 block text-neutral-600">Servicio de interés</span>
-            <select name="servicio" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold">
+            <span class="mb-1.5 block text-cocoa/70">Servicio de interés</span>
+            <select name="servicio" class="w-full rounded-2xl border border-cocoa/15 bg-linen px-3 py-2.5 outline-none focus:border-clay">
               <option>Reuniones y Capacitaciones</option>
               <option>Colaciones y almuerzos caseros</option>
               <option>Pedidos Especiales</option>
@@ -527,28 +475,28 @@
             </select>
           </label>
           <label class="mt-4 block text-sm">
-            <span class="mb-1.5 block text-neutral-600">Mensaje</span>
-            <textarea required name="mensaje" rows="4" class="w-full rounded-lg border border-neutral-200 bg-ivory px-3 py-2.5 outline-none focus:border-gold"></textarea>
+            <span class="mb-1.5 block text-cocoa/70">Mensaje</span>
+            <textarea required name="mensaje" rows="4" class="w-full rounded-2xl border border-cocoa/15 bg-linen px-3 py-2.5 outline-none focus:border-clay"></textarea>
           </label>
-          <button type="submit" class="mt-6 w-full rounded-full bg-ink py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-gold hover:text-ink">
+          <button type="submit" class="btn-clay mt-6 w-full rounded-full py-3.5 text-[11px] font-bold uppercase tracking-[0.2em]">
             Cotizar Ahora
           </button>
-          <p id="formOk" class="mt-4 hidden text-center text-sm text-gold-800">Gracias. Recibimos su solicitud de cotización.</p>
+          <p id="formOk" class="mt-4 hidden text-center text-sm text-olive">Gracias. Recibimos su solicitud de cotización.</p>
         </form>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-white/10 bg-ink py-10 text-white">
+  <footer class="border-t border-cocoa/10 bg-cocoa py-10 text-paper">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 sm:flex-row lg:px-8">
       <div class="flex items-center gap-3">
-        <img src="assets/logo.png?v=2" alt="" class="h-12 w-auto" />
-        <p class="text-xs tracking-wide text-white/45">© 2026 Familia Martínez Confitería. Todos los derechos reservados.</p>
+        <img src="assets/logo.png?v=3" alt="" class="h-12 w-auto" />
+        <p class="text-xs tracking-wide text-paper/55">© 2026 Familia Martínez Confitería. Todos los derechos reservados.</p>
       </div>
       <div class="flex gap-4 text-gold">
-        <a href="#" aria-label="Instagram" class="hover:text-white"><i class="fa-brands fa-instagram text-lg"></i></a>
-        <a href="#" aria-label="Facebook" class="hover:text-white"><i class="fa-brands fa-facebook-f text-lg"></i></a>
-        <a href="#" aria-label="LinkedIn" class="hover:text-white"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+        <a href="#" aria-label="Instagram" class="hover:text-paper"><i class="fa-brands fa-instagram text-lg"></i></a>
+        <a href="#" aria-label="Facebook" class="hover:text-paper"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+        <a href="#" aria-label="LinkedIn" class="hover:text-paper"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
       </div>
     </div>
   </footer>
@@ -559,9 +507,7 @@
       loader.classList.add("is-done");
       document.body.classList.remove("is-loading");
     };
-    window.addEventListener("load", () => {
-      setTimeout(hideLoader, 1400);
-    });
+    window.addEventListener("load", () => setTimeout(hideLoader, 1400));
     setTimeout(hideLoader, 4000);
 
     const menuBtn = document.getElementById("menuBtn");

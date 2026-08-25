@@ -52,6 +52,12 @@
     .img-zoom:hover img { transform: scale(1.04); }
     .kenburns { animation: ken 26s ease-out forwards; }
     @keyframes ken { from { transform: scale(1) } to { transform: scale(1.06) } }
+    .casa-note {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.35;
+    }
     .label {
       position: absolute; inset-inline: 0; bottom: 0;
       background: rgba(255,255,255,.94);
@@ -74,6 +80,7 @@
       <nav class="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/70 lg:flex">
         <a href="#inicio" class="nav-link">Inicio</a>
         <a href="#productos" class="nav-link">Productos</a>
+        <a href="#colaciones" class="nav-link">Colaciones</a>
         <a href="#servicios" class="nav-link">Servicios</a>
         <a href="#nosotros" class="nav-link">Quiénes Somos</a>
         <a href="#contacto" class="rounded-full bg-ink px-5 py-2 text-white hover:bg-gold">Contacto</a>
@@ -82,7 +89,7 @@
     </div>
     <div id="mobileMenu" class="hidden border-t border-black/5 bg-sand px-5 py-5 lg:hidden">
       <div class="flex flex-col gap-4 text-xs font-semibold uppercase tracking-[0.16em]">
-        <a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#servicios">Servicios</a>
+        <a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#colaciones">Colaciones</a><a href="#servicios">Servicios</a>
         <a href="#nosotros">Quiénes Somos</a><a href="#contacto" class="text-gold-600">Contacto</a>
       </div>
     </div>
@@ -173,6 +180,50 @@
     </div>
   </section>
 
+  <section id="colaciones" class="border-y border-black/5 bg-white py-24 lg:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-3xl text-center">
+        <p class="kicker">El almuerzo de su equipo</p>
+        <h2 class="mt-3 font-display text-4xl sm:text-5xl">Colaciones como en casa</h2>
+        <div class="line mx-auto mt-5"></div>
+        <p class="casa-note mt-8 text-ink/80">
+          No es un refrigerio de oficina. Es un almuerzo familiar: casero, hogareño y artesanal, preparado para que el colaborador se sienta considerado en su jornada.
+        </p>
+      </div>
+
+      <div class="reveal mt-12 grid gap-4 md:grid-cols-3">
+        <figure class="overflow-hidden rounded-2xl">
+          <img src="assets/almuerzo-olla.jpg" alt="Preparación casera en olla" class="h-72 w-full object-cover" />
+          <figcaption class="mt-3 text-center font-display text-xl">Hecho en olla, como en casa</figcaption>
+        </figure>
+        <figure class="overflow-hidden rounded-2xl">
+          <img src="assets/almuerzo-pollo.jpg" alt="Almuerzo familiar" class="h-72 w-full object-cover" />
+          <figcaption class="mt-3 text-center font-display text-xl">Platos de almuerzo familiar</figcaption>
+        </figure>
+        <figure class="overflow-hidden rounded-2xl">
+          <img src="assets/almuerzo-cocina.jpg" alt="Cocina hogareña" class="h-72 w-full object-cover" />
+          <figcaption class="mt-3 text-center font-display text-xl">Cocina hogareña</figcaption>
+        </figure>
+      </div>
+
+      <div class="reveal mx-auto mt-14 grid max-w-5xl gap-10 lg:grid-cols-2 lg:items-center">
+        <img src="assets/almuerzo-pasta.jpg" alt="Almuerzo casero" class="h-80 w-full rounded-2xl object-cover" />
+        <div>
+          <p class="kicker">02 — Colaciones</p>
+          <h3 class="mt-3 font-display text-3xl">Pedidos diarios o programados</h3>
+          <p class="mt-4 text-sm leading-relaxed text-ink/70">
+            Pedidos diarios o programados de colaciones para tu personal: almuerzos con sabor familiar, artesanales y caseros. Pensamos cada colación como el almuerzo que se serviría en una mesa de familia: recetas simples, porciones generosas y esa calidez de un plato hogareño, con calendario semanal para oficinas y faenas.
+          </p>
+          <ul class="mt-6 space-y-3 text-sm">
+            <li class="flex gap-3"><span class="text-gold">01</span> Casero: preparación artesanal, con el sabor de un almuerzo de casa.</li>
+            <li class="flex gap-3"><span class="text-gold">02</span> Familiar: el mismo enfoque de un almuerzo de domingo, para el día a día laboral.</li>
+            <li class="flex gap-3"><span class="text-gold">03</span> Hogareño: el colaborador se siente cuidado, no “abastecido”.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="servicios" class="bg-ink py-24 text-white lg:py-28">
     <div class="mx-auto max-w-7xl px-5 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
@@ -189,21 +240,6 @@
             <h3 class="mt-3 font-display text-3xl">Reuniones y Capacitaciones</h3>
             <p class="mt-4 text-sm font-medium text-white/90">Packs individuales, coffee break y refrigerios para tus eventos corporativos.</p>
             <p class="mt-3 text-sm leading-relaxed text-white/55">Armamos propuestas según la duración y el formato de tu jornada: packs individuales sellados, mesas de coffee break y refrigerios para reuniones, directorios y capacitaciones. Presentación limpia, porciones consistentes y puntualidad de servicio.</p>
-          </div>
-        </article>
-
-        <article class="reveal grid overflow-hidden rounded-2xl bg-sand text-ink lg:grid-cols-2">
-          <div class="img-zoom min-h-[280px] lg:order-2"><img src="assets/lunch-casero.jpg" alt="Colaciones y almuerzos caseros" class="h-full w-full object-cover" /></div>
-          <div class="flex flex-col justify-center p-8 lg:p-12">
-            <p class="kicker">02 — Colaciones</p>
-            <h3 class="mt-3 font-display text-3xl">Colaciones y Almuerzos</h3>
-            <p class="mt-4 text-sm font-medium">Pedidos diarios o programados de colaciones para tu personal: almuerzos con sabor familiar, artesanales y caseros.</p>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Pensamos cada colación como un almuerzo de casa. Preparaciones hogareñas, hechas con cariño y pensadas para que el colaborador se sienta cuidado en su jornada: recetas simples, porciones generosas y esa calidez de un plato familiar, con pedidos diarios o calendario semanal para oficinas y faenas.</p>
-            <ul class="mt-5 space-y-2 text-sm text-ink/80">
-              <li>— Almuerzos con enfoque casero y artesanal</li>
-              <li>— Sabor hogareño, como en familia</li>
-              <li>— Entrega diaria o programada según su operación</li>
-            </ul>
           </div>
         </article>
 

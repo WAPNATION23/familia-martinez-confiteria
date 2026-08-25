@@ -79,7 +79,7 @@
     .paper-card {
       background: #FFF9F1;
       border: 1px solid rgba(92,61,46,.12);
-      box-shadow: 0 18px 40px rgba(58,42,28,.08);
+      border-radius: 10px;
     }
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.is-in { opacity: 1; transform: none; }
@@ -140,9 +140,9 @@
   </header>
 
   <section id="inicio" class="relative min-h-screen overflow-hidden">
-    <img src="assets/cocina.jpg" alt="Cocina familiar de Familia Martínez" class="kenburns absolute inset-0 h-full w-full object-cover" />
+    <img src="assets/rustic-hero.jpg" alt="Mesa rústica con comida casera" class="kenburns absolute inset-0 h-full w-full object-cover" />
     <div class="absolute inset-0 bg-gradient-to-b from-[#3A2A1C]/70 via-[#3A2A1C]/35 to-[#3A2A1C]/80"></div>
-    <div class="pointer-events-none absolute inset-4 rounded-[32px] border border-[#F4EDE1]/25 sm:inset-8"></div>
+    <div class="pointer-events-none absolute inset-3 border-[3px] border-[#F4EDE1]/20 sm:inset-6"></div>
     <div class="relative mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 pb-20 pt-28 text-center">
       <p class="font-script text-4xl text-gold sm:text-5xl">sabor de casa</p>
       <div class="ornament my-5 text-gold">✦</div>
@@ -192,25 +192,25 @@
               Disfruta de nuestros chocolates, galletas, barras de cereal, frutos secos, caramelos, y más.
             </p>
             <div class="mt-5 grid grid-cols-5 gap-2">
-              <figure class="img-zoom col-span-2">
-                <img src="assets/chocolate.jpg" alt="Chocolates" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Chocolates</figcaption>
+              <figure class="img-zoom relative col-span-2">
+                <img src="assets/chocolate.jpg" alt="Chocolates" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Chocolates</figcaption>
               </figure>
-              <figure class="img-zoom col-span-3">
-                <img src="assets/cookies.jpg" alt="Galletas" class="aspect-[2/1] h-full w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Galletas</figcaption>
+              <figure class="img-zoom relative col-span-3">
+                <img src="assets/cookies.jpg" alt="Galletas" class="h-full w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Galletas</figcaption>
               </figure>
-              <figure class="img-zoom">
-                <img src="assets/granola.jpg" alt="Barras de cereal" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Cereal</figcaption>
+              <figure class="img-zoom relative">
+                <img src="assets/granola.jpg" alt="Barras de cereal" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Cereal</figcaption>
               </figure>
-              <figure class="img-zoom">
-                <img src="assets/nuts.jpg" alt="Frutos secos" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Frutos secos</figcaption>
+              <figure class="img-zoom relative">
+                <img src="assets/nuts.jpg" alt="Frutos secos" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Frutos secos</figcaption>
               </figure>
-              <figure class="img-zoom col-span-3">
-                <img src="assets/candy.jpg" alt="Caramelos" class="aspect-[3/1] h-full w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Caramelos</figcaption>
+              <figure class="img-zoom relative col-span-3">
+                <img src="assets/candy.jpg" alt="Caramelos" class="h-24 w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Caramelos</figcaption>
               </figure>
             </div>
           </div>
@@ -228,21 +228,21 @@
           <div class="p-6">
             <p class="text-sm leading-relaxed text-cocoa/75">Ofrecemos bebidas, jugos, aguas y energéticas.</p>
             <div class="mt-5 grid grid-cols-2 gap-2">
-              <figure class="img-zoom">
-                <img src="assets/soda.jpg" alt="Bebidas" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Bebidas</figcaption>
+              <figure class="img-zoom relative">
+                <img src="assets/soda.jpg" alt="Bebidas" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Bebidas</figcaption>
               </figure>
-              <figure class="img-zoom">
-                <img src="assets/juice.jpg" alt="Jugos" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Jugos</figcaption>
+              <figure class="img-zoom relative">
+                <img src="assets/juice.jpg" alt="Jugos" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Jugos</figcaption>
               </figure>
-              <figure class="img-zoom">
-                <img src="assets/water.jpg" alt="Aguas" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Aguas</figcaption>
+              <figure class="img-zoom relative">
+                <img src="assets/water.jpg" alt="Aguas" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Aguas</figcaption>
               </figure>
-              <figure class="img-zoom">
-                <img src="assets/energy.jpg" alt="Energéticas" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Energéticas</figcaption>
+              <figure class="img-zoom relative">
+                <img src="assets/energy.jpg" alt="Energéticas" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Energéticas</figcaption>
               </figure>
             </div>
           </div>
@@ -260,21 +260,21 @@
           <div class="p-6">
             <p class="text-sm leading-relaxed text-cocoa/75">Todo para tu pausa: café, té, azúcar y endulzantes.</p>
             <div class="mt-5 grid grid-cols-2 gap-2">
-              <figure class="img-zoom">
-                <img src="assets/coffee2.jpg" alt="Café" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Café</figcaption>
+              <figure class="img-zoom relative">
+                <img src="assets/coffee2.jpg" alt="Café" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Café</figcaption>
               </figure>
-              <figure class="img-zoom">
-                <img src="assets/tea.jpg" alt="Té" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Té</figcaption>
+              <figure class="img-zoom relative">
+                <img src="assets/tea.jpg" alt="Té" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Té</figcaption>
               </figure>
-              <figure class="img-zoom">
-                <img src="assets/sugar.jpg" alt="Azúcar" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Azúcar</figcaption>
+              <figure class="img-zoom relative">
+                <img src="assets/sugar.jpg" alt="Azúcar" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Azúcar</figcaption>
               </figure>
-              <figure class="img-zoom">
-                <img src="assets/honey.jpg" alt="Endulzantes" class="aspect-square w-full rounded-2xl object-cover" />
-                <figcaption class="mt-1.5 text-[10px] uppercase tracking-wider text-cocoa/55">Endulzantes</figcaption>
+              <figure class="img-zoom relative">
+                <img src="assets/honey.jpg" alt="Endulzantes" class="aspect-square w-full object-cover" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-paper/95 px-2 py-2 text-center text-sm font-bold text-ink">Endulzantes</figcaption>
               </figure>
             </div>
           </div>
@@ -297,7 +297,7 @@
       <div class="mt-16 space-y-8">
         <article class="reveal grid overflow-hidden rounded-[28px] border border-paper/10 bg-paper/5 lg:grid-cols-2">
           <div class="img-zoom min-h-[280px]">
-            <img src="assets/meeting.jpg" alt="Reuniones y capacitaciones" class="h-full w-full object-cover" />
+            <img src="assets/rustic-table.jpg" alt="Reuniones y capacitaciones" class="h-full w-full object-cover" />
           </div>
           <div class="flex flex-col justify-center p-8 text-paper lg:p-12">
             <span class="font-script text-2xl text-gold">01 — Eventos</span>
@@ -366,7 +366,7 @@
       </div>
       <div class="relative">
         <div class="absolute -left-4 top-8 hidden h-40 w-40 rounded-full bg-clay/15 blur-2xl lg:block"></div>
-        <img src="assets/about.jpg" alt="Confitería artesanal" class="relative h-[460px] w-full rounded-[32px] object-cover shadow-[0_24px_50px_rgba(58,42,28,.18)]" />
+        <img src="assets/rustic-bread.jpg" alt="Pan y mesa rústica" class="relative h-[460px] w-full object-cover shadow-[0_24px_50px_rgba(58,42,28,.18)]" />
       </div>
     </div>
 

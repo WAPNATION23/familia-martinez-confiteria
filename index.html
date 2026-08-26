@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Familia Martínez Confitería | Sabor y Distinción para tu Empresa</title>
   <meta name="description" content="Familia Martínez Confitería: snacks, bebidas y cafetería para empresas. Coffee break, colaciones y pedidos especiales con despacho directo." />
-  <link rel="icon" href="assets/logo.png?v=5" />
+  <link rel="icon" href="assets/logo.png?v=13" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -61,25 +62,25 @@
       font-size: 1.35rem;
       line-height: 1.35;
     }
-    .label {
-      position: absolute; inset-inline: 0; bottom: 0;
-      background: rgba(255,255,255,.94);
-      padding: .55rem .5rem;
-      text-align: center;
-      font-size: .9rem;
-      font-weight: 600;
-      color: #161412;
+    .wa-float {
+      position: fixed; right: 18px; bottom: 18px; z-index: 60;
+      width: 56px; height: 56px; border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      background: #25D366; color: #fff;
+      box-shadow: 0 10px 24px rgba(37,211,102,.35);
     }
+    .wa-float:hover { background: #1ebe5d; color: #fff; }
+    .wa-float.is-soon { opacity: .55; cursor: default; }
   </style>
 </head>
 <body class="is-loading font-sans text-ink antialiased">
   <div id="loader" aria-hidden="true">
-    <img src="assets/logo.png?v=5" alt="Familia Martínez Confitería" class="loader-logo" />
+    <img src="assets/logo.png?v=13" alt="Familia Martínez Confitería" class="loader-logo" />
   </div>
 
   <header class="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-sand/95 backdrop-blur">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-2.5 lg:px-8">
-      <a href="#inicio"><img src="assets/logo.png?v=5" alt="Familia Martínez Confitería" class="h-14 w-auto rounded-xl sm:h-16" /></a>
+      <a href="#inicio"><img src="assets/logo.png?v=13" alt="Familia Martínez Confitería" class="h-14 w-auto rounded-xl sm:h-16" /></a>
       <nav class="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/70 lg:flex">
         <a href="#inicio" class="nav-link">Inicio</a>
         <a href="#productos" class="nav-link">Productos</a>
@@ -103,7 +104,7 @@
     <div class="hero-veil absolute inset-0"></div>
     <div class="pointer-events-none absolute inset-6 hidden border border-[#C4A35A]/35 sm:block lg:inset-10"></div>
     <div class="relative mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 pb-16 pt-28 text-center text-white">
-      <img src="assets/logo.png?v=5" alt="" class="mb-8 h-[88px] w-auto sm:h-28" />
+      <img src="assets/logo.png?v=13" alt="" class="mb-8 h-[88px] w-auto sm:h-28" />
       <p class="kicker text-gold">Confitería corporativa</p>
       <div class="line my-6"></div>
       <h1 class="font-display text-4xl font-semibold leading-[1.08] sm:text-6xl md:text-7xl">
@@ -210,6 +211,7 @@
           <figcaption class="mt-3 text-center font-display text-xl">Cocina hogareña</figcaption>
         </figure>
       </div>
+      <p class="mt-4 text-center text-xs text-ink/40">Fotografías de referencia. Las cambiamos por fotos reales de las colaciones apenas las tengan.</p>
 
       <div class="reveal mx-auto mt-14 grid max-w-5xl gap-10 lg:grid-cols-2 lg:items-center">
         <img src="assets/almuerzo-pasta.jpg" alt="Almuerzo casero" class="h-80 w-full rounded-2xl object-cover" />
@@ -262,15 +264,21 @@
   </section>
 
   <section id="nosotros" class="py-24 lg:py-28">
-    <div class="reveal mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
-      <div>
-        <p class="kicker">Familia Martínez SpA</p>
-        <h2 class="mt-3 font-display text-4xl sm:text-5xl">Quiénes Somos</h2>
-        <div class="line mt-5"></div>
-        <p class="mt-8 font-display text-2xl italic leading-snug text-ink/80">“Detrás de cada pedido hay personas que trabajan, se esfuerzan y necesitan sentirse consideradas.”</p>
-        <p class="mt-6 text-base leading-relaxed text-ink/65">En Familia Martínez SpA entendemos que alimentar a una empresa es cuidar a quienes la hacen posible. Brindamos soluciones de alimentación y abastecimiento poniendo en el centro a los colaboradores y su bienestar cotidiano, con un servicio cercano, responsable, puntual y de calidad.</p>
+    <div class="reveal mx-auto max-w-4xl px-5 lg:px-8">
+      <p class="kicker">Familia Martínez SpA</p>
+      <h2 class="mt-3 font-display text-4xl sm:text-5xl">Quiénes Somos</h2>
+      <div class="line mt-5"></div>
+      <p class="mt-8 font-display text-2xl italic leading-snug text-ink/85">“Detrás de cada empresa hay personas, y ellas son el centro de nuestro servicio.”</p>
+      <div class="mt-8 space-y-5 text-base leading-relaxed text-ink/70">
+        <p>Familia Martínez SpA nace con el propósito de brindar soluciones de alimentación y abastecimiento a empresas, entendiendo que detrás de cada pedido hay personas que trabajan, cumplen turnos, se esfuerzan y merecen sentirse consideradas.</p>
+        <p>Nuestro compromiso no termina en entregar un producto. Buscamos acompañar la jornada laboral de los colaboradores de nuestros clientes con un servicio cercano, responsable, puntual y de calidad.</p>
+        <p>Creemos que una buena atención también se demuestra en los pequeños detalles: una entrega a tiempo, una colación preparada con dedicación, un pedido correctamente presentado y una respuesta oportuna cuando una empresa nos necesita.</p>
+        <p>Por eso trabajamos para construir relaciones de confianza con nuestros clientes, cuidando especialmente a quienes hacen posible cada organización: sus colaboradores.</p>
       </div>
-      <img src="assets/chocolate.jpg" alt="Confitería Familia Martínez" class="h-[420px] w-full rounded-2xl object-cover" />
+      <div class="mt-10 rounded-2xl border border-gold/40 bg-white px-8 py-8 text-center">
+        <p class="font-display text-3xl">Familia Martínez SpA</p>
+        <p class="mt-3 text-ink/70">Alimentación confiable para empresas. Cercanía y compromiso con las personas.</p>
+      </div>
     </div>
 
     <div class="mx-auto mt-16 grid max-w-7xl gap-6 px-5 lg:grid-cols-2 lg:px-8">
@@ -330,7 +338,14 @@
             <p class="mt-1">Línea 2 · +56 9 XXXX XXXX</p>
             <p class="mt-3 text-xs text-ink/45">Se publican apenas se confirme el plan.</p>
           </div>
-          <div class="card rounded-2xl p-6"><p class="kicker"><i class="fa-solid fa-location-dot mr-2"></i>Dirección</p><p class="mt-2">Chile · Entrega directa a empresas</p></div>
+          <div class="card rounded-2xl p-6">
+            <p class="kicker"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp</p>
+            <p class="mt-2 text-sm text-ink/70">Escríbanos desde la página. El enlace y el QR se activan al confirmar el número de la SIM.</p>
+            <div id="waBox" class="mt-4 flex items-center gap-4">
+              <div id="waQr" class="flex h-28 w-28 items-center justify-center rounded-xl border border-dashed border-black/15 bg-sand text-center text-[10px] uppercase tracking-wider text-ink/40">QR WhatsApp</div>
+              <a id="waLink" href="#contacto" class="rounded-full bg-[#25D366] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white">WhatsApp próximamente</a>
+            </div>
+          </div>
         </aside>
         <form id="quoteForm" class="reveal card rounded-2xl p-6 sm:p-8 lg:col-span-3">
           <div class="grid gap-4 sm:grid-cols-2">
@@ -355,10 +370,14 @@
     </div>
   </section>
 
+  <a id="waFloat" class="wa-float is-soon" href="#contacto" aria-label="WhatsApp próximamente">
+    <i class="fa-brands fa-whatsapp text-2xl"></i>
+  </a>
+
   <footer class="bg-ink py-10 text-white">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 sm:flex-row lg:px-8">
       <div class="flex items-center gap-3">
-        <img src="assets/logo.png?v=5" alt="" class="h-11 w-auto rounded-lg" />
+        <img src="assets/logo.png?v=13" alt="" class="h-11 w-auto rounded-lg" />
         <p class="text-xs text-white/45">© 2026 Familia Martínez Confitería. Todos los derechos reservados.</p>
       </div>
       <div class="flex gap-4 text-gold">
@@ -387,6 +406,19 @@
       entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add("is-in"); });
     }, { threshold: 0.12 });
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    const WHATSAPP_NUMBER = "";
+    if (WHATSAPP_NUMBER) {
+      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("Hola, quiero cotizar con Familia Martínez Confitería.");
+      const waLink = document.getElementById("waLink");
+      const waFloat = document.getElementById("waFloat");
+      waLink.href = url;
+      waLink.textContent = "Escribir por WhatsApp";
+      waFloat.href = url;
+      waFloat.classList.remove("is-soon");
+      waFloat.setAttribute("aria-label", "Escribir por WhatsApp");
+      document.getElementById("waQr").innerHTML = '<img alt="QR WhatsApp" class="h-28 w-28 rounded-xl" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(url) + '" />';
+    }
   </script>
 </body>
 </html>

@@ -71,6 +71,10 @@
     }
     .wa-float:hover { background: #1ebe5d; color: #fff; }
     .wa-float.is-soon { opacity: .55; cursor: default; }
+    .chip {
+      font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      background: #F6F3EE; color: rgba(22,20,18,.62); padding: .35rem .7rem; border-radius: 999px;
+    }
   </style>
 </head>
 <body class="is-loading font-sans text-ink antialiased">
@@ -132,53 +136,58 @@
 
       <div class="mt-14 grid gap-7 lg:grid-cols-3">
         <article class="reveal card overflow-hidden rounded-2xl">
-          <div class="img-zoom relative h-52">
-            <img src="assets/chocolate.jpg" alt="Snacks y confites" class="h-full w-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-ink/75 to-transparent"></div>
-            <h3 class="absolute bottom-4 left-5 font-display text-3xl text-white">Snacks y Confites</h3>
+          <div class="img-zoom relative h-56 bg-white">
+            <img src="assets/productos-snacks.jpg?v=15" alt="Snacks y confites" class="h-full w-full object-contain p-4" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent px-5 pb-4 pt-10">
+              <h3 class="font-display text-3xl text-white">Snacks y Confites</h3>
+            </div>
           </div>
           <div class="p-5">
             <p class="text-sm leading-relaxed text-ink/65">Disfruta de nuestros chocolates, galletas, barras de cereal, frutos secos, caramelos, y más.</p>
-            <div class="mt-4 grid grid-cols-5 gap-2">
-              <figure class="img-zoom relative col-span-2"><img src="assets/chocolate.jpg" alt="Chocolates" class="aspect-square w-full object-cover" /><figcaption class="label">Chocolates</figcaption></figure>
-              <figure class="img-zoom relative col-span-3"><img src="assets/cookies.jpg" alt="Galletas" class="h-full w-full object-cover" /><figcaption class="label">Galletas</figcaption></figure>
-              <figure class="img-zoom relative"><img src="assets/granola.jpg" alt="Barras de cereal" class="aspect-square w-full object-cover" /><figcaption class="label">Cereal</figcaption></figure>
-              <figure class="img-zoom relative"><img src="assets/nuts.jpg" alt="Frutos secos" class="aspect-square w-full object-cover" /><figcaption class="label">Frutos secos</figcaption></figure>
-              <figure class="img-zoom relative col-span-3"><img src="assets/candy.jpg" alt="Caramelos" class="h-24 w-full object-cover" /><figcaption class="label">Caramelos</figcaption></figure>
+            <img src="assets/productos-pasteles.jpg?v=15" alt="Pasteles y dulces de cóctel" class="mt-4 h-40 w-full rounded-xl object-cover" />
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="chip">Chocolates</span>
+              <span class="chip">Galletas</span>
+              <span class="chip">Cereal</span>
+              <span class="chip">Frutos secos</span>
+              <span class="chip">Caramelos</span>
             </div>
           </div>
         </article>
 
         <article class="reveal card overflow-hidden rounded-2xl">
-          <div class="img-zoom relative h-52">
-            <img src="assets/juice.jpg" alt="Bebidas" class="h-full w-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-ink/75 to-transparent"></div>
-            <h3 class="absolute bottom-4 left-5 font-display text-3xl text-white">Bebidas</h3>
+          <div class="img-zoom relative h-56 bg-white">
+            <img src="assets/productos-bebidas.jpg?v=15" alt="Bebidas, jugos, aguas y energéticas" class="h-full w-full object-contain p-3" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent px-5 pb-4 pt-10">
+              <h3 class="font-display text-3xl text-white">Bebidas</h3>
+            </div>
           </div>
           <div class="p-5">
             <p class="text-sm leading-relaxed text-ink/65">Ofrecemos bebidas, jugos, aguas y energéticas.</p>
-            <div class="mt-4 grid grid-cols-2 gap-2">
-              <figure class="img-zoom relative"><img src="assets/soda.jpg" alt="Bebidas" class="aspect-square w-full object-cover" /><figcaption class="label">Bebidas</figcaption></figure>
-              <figure class="img-zoom relative"><img src="assets/juice.jpg" alt="Jugos" class="aspect-square w-full object-cover" /><figcaption class="label">Jugos</figcaption></figure>
-              <figure class="img-zoom relative"><img src="assets/water.jpg" alt="Aguas" class="aspect-square w-full object-cover" /><figcaption class="label">Aguas</figcaption></figure>
-              <figure class="img-zoom relative"><img src="assets/energy.jpg" alt="Energéticas" class="aspect-square w-full object-cover" /><figcaption class="label">Energéticas</figcaption></figure>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="chip">Bebidas</span>
+              <span class="chip">Jugos</span>
+              <span class="chip">Aguas</span>
+              <span class="chip">Energéticas</span>
             </div>
           </div>
         </article>
 
         <article class="reveal card overflow-hidden rounded-2xl">
-          <div class="img-zoom relative h-52">
-            <img src="assets/coffee.jpg" alt="Cafetería" class="h-full w-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-ink/75 to-transparent"></div>
-            <h3 class="absolute bottom-4 left-5 font-display text-3xl text-white">Cafetería</h3>
+          <div class="img-zoom relative h-56">
+            <img src="assets/productos-cafeteria.jpg?v=15" alt="Café, té, azúcar y endulzantes" class="h-full w-full object-cover object-center" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent px-5 pb-4 pt-10">
+              <h3 class="font-display text-3xl text-white">Cafetería</h3>
+            </div>
           </div>
           <div class="p-5">
             <p class="text-sm leading-relaxed text-ink/65">Todo para tu pausa: café, té, azúcar y endulzantes.</p>
-            <div class="mt-4 grid grid-cols-2 gap-2">
-              <figure class="img-zoom relative"><img src="assets/coffee2.jpg" alt="Café" class="aspect-square w-full object-cover" /><figcaption class="label">Café</figcaption></figure>
-              <figure class="img-zoom relative"><img src="assets/tea.jpg" alt="Té" class="aspect-square w-full object-cover" /><figcaption class="label">Té</figcaption></figure>
-              <figure class="img-zoom relative"><img src="assets/sugar.jpg" alt="Azúcar" class="aspect-square w-full object-cover" /><figcaption class="label">Azúcar</figcaption></figure>
-              <figure class="img-zoom relative"><img src="assets/honey.jpg" alt="Endulzantes" class="aspect-square w-full object-cover" /><figcaption class="label">Endulzantes</figcaption></figure>
+            <img src="assets/productos-cafeteria-linea.jpg?v=15" alt="Café, té, azúcar y endulzantes de abastecimiento" class="mt-4 h-40 w-full rounded-xl object-contain bg-white" />
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="chip">Café</span>
+              <span class="chip">Té</span>
+              <span class="chip">Azúcar</span>
+              <span class="chip">Endulzantes</span>
             </div>
           </div>
         </article>
@@ -199,22 +208,21 @@
 
       <div class="reveal mt-12 grid gap-4 md:grid-cols-3">
         <figure class="overflow-hidden rounded-2xl">
-          <img src="assets/almuerzo-olla.jpg" alt="Preparación casera en olla" class="h-72 w-full object-cover" />
-          <figcaption class="mt-3 text-center font-display text-xl">Hecho en olla, como en casa</figcaption>
+          <img src="assets/colacion-pollo.jpg?v=15" alt="Pollo asado con arroz y papas" class="h-72 w-full object-cover" />
+          <figcaption class="mt-3 text-center font-display text-xl">Pollo asado, como en casa</figcaption>
         </figure>
         <figure class="overflow-hidden rounded-2xl">
-          <img src="assets/almuerzo-pollo.jpg" alt="Almuerzo familiar" class="h-72 w-full object-cover" />
-          <figcaption class="mt-3 text-center font-display text-xl">Platos de almuerzo familiar</figcaption>
+          <img src="assets/colacion-lentejas.jpg?v=15" alt="Lentejas caseras" class="h-72 w-full object-cover" />
+          <figcaption class="mt-3 text-center font-display text-xl">Lentejas de olla</figcaption>
         </figure>
         <figure class="overflow-hidden rounded-2xl">
-          <img src="assets/almuerzo-cocina.jpg" alt="Cocina hogareña" class="h-72 w-full object-cover" />
-          <figcaption class="mt-3 text-center font-display text-xl">Cocina hogareña</figcaption>
+          <img src="assets/colacion-cazuela.jpg?v=15" alt="Cazuela de vacuno" class="h-72 w-full object-cover" />
+          <figcaption class="mt-3 text-center font-display text-xl">Cazuela de vacuno</figcaption>
         </figure>
       </div>
-      <p class="mt-4 text-center text-xs text-ink/40">Fotografías de referencia. Las cambiamos por fotos reales de las colaciones apenas las tengan.</p>
 
       <div class="reveal mx-auto mt-14 grid max-w-5xl gap-10 lg:grid-cols-2 lg:items-center">
-        <img src="assets/almuerzo-pasta.jpg" alt="Almuerzo casero" class="h-80 w-full rounded-2xl object-cover" />
+        <img src="assets/colacion-guiso.jpg?v=15" alt="Guiso casero con huevo" class="h-80 w-full rounded-2xl object-cover" />
         <div>
           <p class="kicker">02 — Colaciones</p>
           <h3 class="mt-3 font-display text-3xl">Pedidos diarios o programados</h3>
@@ -241,7 +249,7 @@
 
       <div class="mt-14 space-y-6">
         <article class="reveal grid overflow-hidden rounded-2xl border border-white/10 lg:grid-cols-2">
-          <div class="img-zoom min-h-[260px]"><img src="assets/meeting.jpg" alt="Reuniones y capacitaciones" class="h-full w-full object-cover" /></div>
+          <div class="img-zoom min-h-[260px]"><img src="assets/servicio-comedor.jpg?v=15" alt="Comedor y servicio para equipos de trabajo" class="h-full w-full object-cover" /></div>
           <div class="flex flex-col justify-center p-8 lg:p-12">
             <p class="kicker">01 — Eventos</p>
             <h3 class="mt-3 font-display text-3xl">Reuniones y Capacitaciones</h3>
@@ -251,7 +259,7 @@
         </article>
 
         <article class="reveal grid overflow-hidden rounded-2xl border border-white/10 lg:grid-cols-2">
-          <div class="img-zoom min-h-[260px]"><img src="assets/cake.jpg" alt="Pedidos especiales" class="h-full w-full object-cover" /></div>
+          <div class="img-zoom min-h-[260px]"><img src="assets/productos-pasteles.jpg?v=15" alt="Pasteles y dulces para celebraciones de empresa" class="h-full w-full object-cover" /></div>
           <div class="flex flex-col justify-center p-8 lg:p-12">
             <p class="kicker">03 — Celebraciones</p>
             <h3 class="mt-3 font-display text-3xl">Pedidos Especiales</h3>

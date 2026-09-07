@@ -56,6 +56,12 @@
     }
     .kenburns { animation: ken 26s ease-out forwards; }
     @keyframes ken { from { transform: scale(1) } to { transform: scale(1.06) } }
+    @media (min-width: 1024px) {
+      .hero-veil {
+        background: linear-gradient(90deg, rgba(0,0,0,.06) 0%, rgba(0,0,0,.22) 42%, rgba(0,0,0,.58) 100%);
+      }
+      .kenburns { animation: none; }
+    }
     .casa-note {
       font-family: "Cormorant Garamond", Georgia, serif;
       font-style: italic;
@@ -104,23 +110,26 @@
   </header>
 
   <section id="inicio" class="relative min-h-screen overflow-hidden">
-    <img src="assets/cover-portada.jpg?v=16" alt="Servicio de alimentación y confitería para empresas" class="kenburns absolute inset-0 h-full w-full object-cover object-[70%_center]" />
+    <img src="assets/cover-portada.jpg?v=16" alt="Servicio de alimentación y confitería para empresas" class="kenburns absolute inset-0 h-full w-full object-cover object-[70%_center] lg:object-left" />
     <div class="hero-veil absolute inset-0"></div>
     <div class="pointer-events-none absolute inset-6 hidden border border-[#C4A35A]/35 sm:block lg:inset-10"></div>
-    <div class="relative mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 pb-16 pt-28 text-center text-white">
-      <p class="kicker text-gold">Confitería corporativa</p>
-      <div class="line my-6"></div>
-      <h1 class="font-display text-4xl font-semibold leading-[1.08] sm:text-6xl md:text-7xl">
-        Sabor y Distinción<br />para tu Empresa
-      </h1>
-      <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/75 sm:text-lg">
-        Snacks, bebidas, cafetería y colaciones caseras para equipos de trabajo. Servicio cercano, puntual y de calidad.
-      </p>
-      <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-        <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gold px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-ink hover:bg-white">
-          Cotizar Ahora
-        </a>
-        <a href="#productos" class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70 hover:text-gold">Ver catálogo</a>
+    <div class="relative mx-auto grid min-h-screen w-full max-w-7xl items-center px-6 pb-16 pt-28 text-center text-white lg:grid-cols-12 lg:px-16 lg:text-right xl:px-20">
+      <div class="hidden lg:col-span-6 lg:block" aria-hidden="true"></div>
+      <div class="lg:col-span-6 lg:pl-8">
+        <p class="kicker text-gold">Confitería corporativa</p>
+        <div class="line mx-auto my-6 lg:ml-auto lg:mr-0"></div>
+        <h1 class="font-display text-4xl font-semibold leading-[1.08] sm:text-6xl lg:text-5xl xl:text-6xl">
+          Sabor y Distinción<br />para tu Empresa
+        </h1>
+        <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/75 sm:text-lg lg:ml-auto">
+          Snacks, bebidas, cafetería y colaciones caseras para equipos de trabajo. Servicio cercano, puntual y de calidad.
+        </p>
+        <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-end">
+          <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gold px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-ink hover:bg-white">
+            Cotizar Ahora
+          </a>
+          <a href="#productos" class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70 hover:text-gold">Ver catálogo</a>
+        </div>
       </div>
     </div>
   </section>

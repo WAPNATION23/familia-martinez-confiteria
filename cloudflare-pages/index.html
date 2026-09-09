@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Familia Martínez Confitería | Sabor y Distinción para tu Empresa</title>
+  <meta name="description" content="Familia Martínez Confitería: snacks, bebidas y cafetería para empresas. Coffee break, colaciones y pedidos especiales con despacho directo." />
+  <link rel="icon" href="assets/logo.png?v=14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#161412",
+            sand: "#F6F3EE",
+            gold: { DEFAULT: "#C4A35A", 600: "#9A7C38" }
+          },
+          fontFamily: {
+            display: ["Cormorant Garamond", "Georgia", "serif"],
+            sans: ["Outfit", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #F6F3EE; }
+    body.is-loading { overflow: hidden; }
+    #loader {
+      position: fixed; inset: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: center;
+      background: #161412;
+      transition: opacity .65s ease, visibility .65s ease;
+    }
+    #loader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo { width: min(280px, 72vw); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity:.75 } 50% { opacity:1 } }
+    .kicker { font-size: 11px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: #9A7C38; }
+    .line { width: 48px; height: 1px; background: #C4A35A; }
+    .card { background: #fff; border: 1px solid #e8e2d8; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: .7s ease; }
+    .reveal.is-in { opacity: 1; transform: none; }
+    .nav-link:hover { color: #C4A35A; }
+    .img-zoom { overflow: hidden; }
+    .img-zoom img { transition: transform .7s ease; }
+    .img-zoom:hover img { transform: scale(1.04); }
+    .hero-veil {
+      background: radial-gradient(ellipse 75% 60% at 50% 45%, rgba(0,0,0,.18) 0%, rgba(0,0,0,.58) 100%);
+    }
+    .kenburns { animation: ken 26s ease-out forwards; }
+    @keyframes ken { from { transform: scale(1) } to { transform: scale(1.06) } }
+    .casa-note {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.35;
+    }
+    .wa-float {
+      position: fixed; right: 18px; bottom: 18px; z-index: 60;
+      width: 56px; height: 56px; border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      background: #25D366; color: #fff;
+      box-shadow: 0 10px 24px rgba(37,211,102,.35);
+    }
+    .wa-float:hover { background: #1ebe5d; color: #fff; }
+    .wa-float.is-soon { opacity: .55; cursor: default; }
+    .chip {
+      font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      background: #F6F3EE; color: rgba(22,20,18,.62); padding: .35rem .7rem; border-radius: 999px;
+    }
+  </style>
+</head>
+<body class="is-loading font-sans text-ink antialiased">
+  <div id="loader" aria-hidden="true">
+    <img src="assets/logo.png?v=14" alt="Familia Martínez Confitería" class="loader-logo" />
+  </div>
+
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-sand/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-2.5 lg:px-8">
+      <a href="#inicio"><img src="assets/logo.png?v=14" alt="Familia Martínez Confitería" class="h-14 w-auto rounded-xl sm:h-16" /></a>
+      <nav class="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/70 lg:flex">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#productos" class="nav-link">Productos</a>
+        <a href="#colaciones" class="nav-link">Colaciones</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#nosotros" class="nav-link">Quiénes Somos</a>
+        <a href="#contacto" class="rounded-full bg-ink px-5 py-2 text-white hover:bg-gold">Contacto</a>
+      </nav>
+      <button id="menuBtn" class="lg:hidden" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div id="mobileMenu" class="hidden border-t border-black/5 bg-sand px-5 py-5 lg:hidden">
+      <div class="flex flex-col gap-4 text-xs font-semibold uppercase tracking-[0.16em]">
+        <a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#colaciones">Colaciones</a><a href="#servicios">Servicios</a>
+        <a href="#nosotros">Quiénes Somos</a><a href="#contacto" class="text-gold-600">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="inicio" class="relative min-h-screen overflow-hidden">
+    <img src="assets/cover-portada.jpg?v=17" alt="Servicio de alimentación y confitería para empresas" class="kenburns absolute inset-0 h-full w-full object-cover object-center" />
+    <div class="hero-veil absolute inset-0"></div>
+    <div class="pointer-events-none absolute inset-6 hidden border border-[#C4A35A]/35 sm:block lg:inset-10"></div>
+    <div class="relative mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 pb-16 pt-28 text-center text-white">
+      <img src="assets/logo.png?v=14" alt="" class="mb-8 h-[88px] w-auto sm:h-28" />
+      <p class="kicker !text-ink">Confitería corporativa</p>
+      <div class="line my-6"></div>
+      <h1 class="font-display text-4xl font-semibold leading-[1.08] sm:text-6xl md:text-7xl">
+        Sabor y Distinción<br />para tu Empresa
+      </h1>
+      <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/75 sm:text-lg">
+        Snacks, bebidas, cafetería y colaciones caseras para equipos de trabajo. Servicio cercano, puntual y de calidad.
+      </p>
+      <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+        <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gold px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-ink hover:bg-white">
+          Cotizar Ahora
+        </a>
+        <a href="#productos" class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70 hover:text-gold">Ver catálogo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos" class="py-24 lg:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="kicker">Catálogo</p>
+        <h2 class="mt-3 font-display text-4xl sm:text-5xl">Productos</h2>
+        <div class="line mx-auto mt-5"></div>
+      </div>
+
+      <div class="mt-14 grid items-start gap-7 lg:grid-cols-3">
+        <article class="reveal card overflow-hidden rounded-2xl">
+          <div class="img-zoom relative h-56 bg-white">
+            <img src="assets/productos-snacks.jpg?v=15" alt="Snacks y confites" class="h-full w-full object-contain p-4" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent px-5 pb-4 pt-10">
+              <h3 class="font-display text-3xl text-white">Snacks y Confites</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="min-h-[60px] text-sm leading-relaxed text-ink/65">Disfruta de nuestros chocolates, galletas, barras de cereal, frutos secos, caramelos, y más.</p>
+            <img src="assets/productos-pasteles.jpg?v=15" alt="Pasteles y dulces de cóctel" class="mt-4 h-40 w-full rounded-xl object-cover" />
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="chip">Chocolates</span>
+              <span class="chip">Galletas</span>
+              <span class="chip">Cereal</span>
+              <span class="chip">Frutos secos</span>
+              <span class="chip">Caramelos</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal card overflow-hidden rounded-2xl">
+          <div class="img-zoom relative h-[25rem] bg-white">
+            <img src="assets/productos-bebidas.jpg?v=15" alt="Bebidas, jugos, aguas y energéticas" class="h-full w-full object-contain p-6" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent px-5 pb-4 pt-10">
+              <h3 class="font-display text-3xl text-white">Bebidas</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="min-h-[60px] text-sm leading-relaxed text-ink/65">Ofrecemos bebidas, jugos, aguas y energéticas.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="chip">Bebidas</span>
+              <span class="chip">Jugos</span>
+              <span class="chip">Aguas</span>
+              <span class="chip">Energéticas</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal card overflow-hidden rounded-2xl">
+          <div class="img-zoom relative h-56">
+            <img src="assets/productos-cafeteria.jpg?v=15" alt="Café, té, azúcar y endulzantes" class="h-full w-full object-cover object-center" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent px-5 pb-4 pt-10">
+              <h3 class="font-display text-3xl text-white">Cafetería</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="min-h-[60px] text-sm leading-relaxed text-ink/65">Todo para tu pausa: café, té, azúcar y endulzantes.</p>
+            <img src="assets/productos-cafeteria-linea.jpg?v=15" alt="Café, té, azúcar y endulzantes de abastecimiento" class="mt-4 h-40 w-full rounded-xl object-cover object-center" />
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="chip">Café</span>
+              <span class="chip">Té</span>
+              <span class="chip">Azúcar</span>
+              <span class="chip">Endulzantes</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="colaciones" class="border-y border-black/5 bg-white py-24 lg:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-3xl text-center">
+        <p class="kicker">El almuerzo de su equipo</p>
+        <h2 class="mt-3 font-display text-4xl sm:text-5xl">Colaciones como en casa</h2>
+        <div class="line mx-auto mt-5"></div>
+        <p class="casa-note mt-8 text-ink/80">
+          Es un almuerzo familiar: casero, hogareño y artesanal, preparado para que el colaborador se sienta considerado en su jornada.
+        </p>
+      </div>
+
+      <div class="reveal mt-12 grid gap-4 md:grid-cols-3">
+        <figure class="overflow-hidden rounded-2xl">
+          <img src="assets/colacion-pollo.jpg?v=15" alt="Pollo asado con arroz y papas" class="h-72 w-full object-cover" />
+          <figcaption class="mt-3 text-center font-display text-xl">Pollo asado, como en casa</figcaption>
+        </figure>
+        <figure class="overflow-hidden rounded-2xl">
+          <img src="assets/colacion-lentejas.jpg?v=15" alt="Lentejas caseras" class="h-72 w-full object-cover" />
+          <figcaption class="mt-3 text-center font-display text-xl">Lentejas de olla</figcaption>
+        </figure>
+        <figure class="overflow-hidden rounded-2xl">
+          <img src="assets/colacion-cazuela.jpg?v=15" alt="Cazuela de vacuno" class="h-72 w-full object-cover" />
+          <figcaption class="mt-3 text-center font-display text-xl">Cazuela de vacuno</figcaption>
+        </figure>
+      </div>
+
+      <div class="reveal mx-auto mt-14 grid max-w-5xl gap-10 lg:grid-cols-2 lg:items-center">
+        <img src="assets/colacion-guiso.jpg?v=15" alt="Guiso casero con huevo" class="h-80 w-full rounded-2xl object-cover" />
+        <div>
+          <p class="kicker">02 — Colaciones</p>
+          <h3 class="mt-3 font-display text-3xl">Pedidos diarios o programados</h3>
+          <p class="mt-4 text-sm leading-relaxed text-ink/70">
+            Pedidos diarios o programados de colaciones para tu personal: almuerzos con sabor familiar, artesanales y caseros. Pensamos cada colación como el almuerzo que se serviría en una mesa de familia: recetas simples, porciones generosas y esa calidez de un plato hogareño, con calendario semanal para oficinas y faenas.
+          </p>
+          <ul class="mt-6 space-y-3 text-sm">
+            <li class="flex gap-3"><span class="text-gold">01</span> Casero: preparación artesanal, con el sabor de un almuerzo de casa.</li>
+            <li class="flex gap-3"><span class="text-gold">02</span> Familiar: el mismo enfoque de un almuerzo de domingo, para el día a día laboral.</li>
+            <li class="flex gap-3"><span class="text-gold">03</span> Hogareño: el colaborador se siente cuidado, no “abastecido”.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="bg-ink py-24 text-white lg:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="kicker text-gold">Servicios</p>
+        <h2 class="mt-3 font-display text-4xl sm:text-5xl">Servicios Especializados</h2>
+        <div class="line mx-auto mt-5"></div>
+      </div>
+
+      <div class="mt-14 space-y-6">
+        <article class="reveal grid overflow-hidden rounded-2xl border border-white/10 lg:grid-cols-2">
+          <div class="img-zoom min-h-[260px]"><img src="assets/servicio-comedor.jpg?v=15" alt="Comedor y servicio para equipos de trabajo" class="h-full w-full object-cover" /></div>
+          <div class="flex flex-col justify-center p-8 lg:p-12">
+            <p class="kicker">01 — Eventos</p>
+            <h3 class="mt-3 font-display text-3xl">Reuniones y Capacitaciones</h3>
+            <p class="mt-4 text-sm font-medium text-white/90">Packs individuales, coffee break y refrigerios para tus eventos corporativos.</p>
+            <p class="mt-3 text-sm leading-relaxed text-white/55">Armamos propuestas según la duración y el formato de tu jornada: packs individuales sellados, mesas de coffee break y refrigerios para reuniones, directorios y capacitaciones. Presentación limpia, porciones consistentes y puntualidad de servicio.</p>
+          </div>
+        </article>
+
+        <article class="reveal grid overflow-hidden rounded-2xl border border-white/10 lg:grid-cols-2">
+          <div class="img-zoom min-h-[260px]"><img src="assets/productos-pasteles.jpg?v=15" alt="Pasteles y dulces para celebraciones de empresa" class="h-full w-full object-cover" /></div>
+          <div class="flex flex-col justify-center p-8 lg:p-12">
+            <p class="kicker">03 — Celebraciones</p>
+            <h3 class="mt-3 font-display text-3xl">Pedidos Especiales</h3>
+            <p class="mt-4 text-sm font-medium text-white/90">Tortas y dulces para cumpleaños, celebraciones internas, aniversarios y actividades de empresa.</p>
+            <p class="mt-3 text-sm leading-relaxed text-white/55">Elaboramos y coordinamos pedidos conmemorativos con presentación corporativa: tortas, dulces y arreglos para hitos internos, aniversarios de empresa y actividades de equipo, con despacho alineado a tu calendario.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros" class="py-24 lg:py-28">
+    <div class="reveal mx-auto max-w-4xl px-5 lg:px-8">
+      <p class="kicker">Familia Martínez SpA</p>
+      <h2 class="mt-3 font-display text-4xl sm:text-5xl">Quiénes Somos</h2>
+      <div class="line mt-5"></div>
+      <p class="mt-8 font-display text-2xl italic leading-snug text-ink/85">“Detrás de cada empresa hay personas, y ellas son el centro de nuestro servicio.”</p>
+      <div class="mt-8 space-y-5 text-base leading-relaxed text-ink/70">
+        <p>Familia Martínez SpA nace con el propósito de brindar soluciones de alimentación y abastecimiento a empresas, entendiendo que detrás de cada pedido hay personas que trabajan, cumplen turnos, se esfuerzan y merecen sentirse consideradas.</p>
+        <p>Nuestro compromiso no termina en entregar un producto. Buscamos acompañar la jornada laboral de los colaboradores de nuestros clientes con un servicio cercano, responsable, puntual y de calidad.</p>
+        <p>Creemos que una buena atención también se demuestra en los pequeños detalles: una entrega a tiempo, una colación preparada con dedicación, un pedido correctamente presentado y una respuesta oportuna cuando una empresa nos necesita.</p>
+        <p>Por eso trabajamos para construir relaciones de confianza con nuestros clientes, cuidando especialmente a quienes hacen posible cada organización: sus colaboradores.</p>
+      </div>
+      <div class="mt-10 rounded-2xl border border-gold/40 bg-white px-8 py-8 text-center">
+        <p class="font-display text-3xl">Familia Martínez SpA</p>
+        <p class="mt-3 text-ink/70">Alimentación confiable para empresas. Cercanía y compromiso con las personas.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-16 grid max-w-7xl gap-6 px-5 lg:grid-cols-2 lg:px-8">
+      <article class="reveal card rounded-2xl p-8">
+        <p class="kicker">Misión</p>
+        <h3 class="mt-3 font-display text-3xl">Nuestra misión</h3>
+        <p class="mt-4 text-sm leading-relaxed text-ink/65">Brindar soluciones de alimentación y abastecimiento para empresas, poniendo en el centro a sus colaboradores y su bienestar cotidiano. En Familia Martínez SpA entendemos que detrás de cada pedido hay personas que trabajan, cumplen turnos, se esfuerzan y necesitan sentirse consideradas. Por eso, nos comprometemos a entregar un servicio cercano, responsable, puntual y de calidad, que contribuya a hacer más agradable y humana su jornada laboral.</p>
+      </article>
+      <article class="reveal card rounded-2xl p-8">
+        <p class="kicker">Visión</p>
+        <h3 class="mt-3 font-display text-3xl">Nuestra visión</h3>
+        <p class="mt-4 text-sm leading-relaxed text-ink/65">Ser una empresa reconocida por acompañar a las organizaciones cuidando a quienes las hacen posibles: sus colaboradores. Aspiramos a convertirnos en un proveedor de confianza para las empresas, destacándonos por nuestra cercanía, compromiso, puntualidad y calidad, y creciendo de manera sostenible sin perder el enfoque humano que inspira nuestro servicio.</p>
+      </article>
+    </div>
+
+    <div class="reveal mx-auto mt-16 max-w-7xl px-5 lg:px-8">
+      <div class="mb-8 text-center">
+        <p class="kicker">Cultura</p>
+        <h3 class="mt-3 font-display text-4xl">Valores</h3>
+        <div class="line mx-auto mt-5"></div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="card rounded-2xl p-6"><h4 class="font-display text-xl">Compromiso</h4><p class="mt-2 text-sm leading-relaxed text-ink/65">Nos involucramos de verdad en las necesidades de cada empresa y de sus colaboradores.</p></article>
+        <article class="card rounded-2xl p-6"><h4 class="font-display text-xl">Cercanía</h4><p class="mt-2 text-sm leading-relaxed text-ink/65">Entregamos una atención humana, amable y personalizada.</p></article>
+        <article class="card rounded-2xl p-6"><h4 class="font-display text-xl">Responsabilidad</h4><p class="mt-2 text-sm leading-relaxed text-ink/65">Cumplimos nuestros compromisos con seriedad y dedicación.</p></article>
+        <article class="card rounded-2xl p-6"><h4 class="font-display text-xl">Puntualidad</h4><p class="mt-2 text-sm leading-relaxed text-ink/65">Respetamos los horarios acordados y entendemos la importancia de cada jornada laboral.</p></article>
+        <article class="card rounded-2xl p-6"><h4 class="font-display text-xl">Calidad</h4><p class="mt-2 text-sm leading-relaxed text-ink/65">Buscamos entregar productos y preparaciones en buenas condiciones, cuidando cada detalle.</p></article>
+        <article class="card rounded-2xl p-6"><h4 class="font-display text-xl">Confianza</h4><p class="mt-2 text-sm leading-relaxed text-ink/65">Construimos relaciones transparentes y duraderas con nuestros clientes.</p></article>
+        <article class="card rounded-2xl p-6"><h4 class="font-display text-xl">Trabajo en equipo</h4><p class="mt-2 text-sm leading-relaxed text-ink/65">Valoramos la colaboración y el respeto entre las personas.</p></article>
+        <article class="card rounded-2xl p-6"><h4 class="font-display text-xl">Mejora continua</h4><p class="mt-2 text-sm leading-relaxed text-ink/65">Buscamos aprender y mejorar constantemente nuestro servicio.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="despacho" class="border-y border-black/5 bg-white py-16">
+    <div class="mx-auto max-w-3xl px-5 text-center">
+      <p class="kicker">Logística</p>
+      <h2 class="mt-3 font-display text-4xl">Despacho</h2>
+      <p class="mt-4 text-ink/65">Despacho: entrega directa a la empresa según volumen y ubicación.</p>
+    </div>
+  </section>
+
+  <section id="contacto" class="py-24 lg:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="kicker">Contacto</p>
+        <h2 class="mt-3 font-display text-4xl sm:text-5xl">Solicite una cotización</h2>
+        <div class="line mx-auto mt-5"></div>
+        <p class="mt-5 text-ink/65">Respondemos con una propuesta según su necesidad.</p>
+      </div>
+      <div class="mt-12 grid gap-8 lg:grid-cols-5">
+        <aside class="reveal space-y-4 lg:col-span-2">
+          <div class="card rounded-2xl p-6"><p class="kicker"><i class="fa-solid fa-envelope mr-2"></i>Correo</p><p class="mt-2"><a href="mailto:contacto@familiamartinez.cl" class="hover:text-gold">contacto@familiamartinez.cl</a></p></div>
+          <div class="card rounded-2xl p-6">
+            <p class="kicker"><i class="fa-solid fa-phone mr-2"></i>Teléfonos</p>
+            <p class="mt-2">Línea 1 · <a href="tel:+56947487220" class="hover:text-gold">+56 9 4748 7220</a></p>
+            <p class="mt-1">Línea 2 · <a href="tel:+56976611886" class="hover:text-gold">+56 9 7661 1886</a></p>
+          </div>
+          <div class="card rounded-2xl p-6">
+            <p class="kicker"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp</p>
+            <p class="mt-2 text-sm text-ink/70">Escríbanos al +56 9 4748 7220. El QR y el botón abren WhatsApp a esa línea.</p>
+            <div id="waBox" class="mt-4 flex items-center gap-4">
+              <div id="waQr" class="flex h-28 w-28 items-center justify-center rounded-xl border border-dashed border-black/15 bg-sand text-center text-[10px] uppercase tracking-wider text-ink/40">QR WhatsApp</div>
+              <a id="waLink" href="#contacto" class="rounded-full bg-[#25D366] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white">WhatsApp próximamente</a>
+            </div>
+          </div>
+        </aside>
+        <form id="quoteForm" class="reveal card rounded-2xl p-6 sm:p-8 lg:col-span-3">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="text-sm">Nombre<input required name="nombre" class="mt-1.5 w-full rounded-lg border border-black/10 bg-sand px-3 py-2.5 outline-none focus:border-gold" /></label>
+            <label class="text-sm">Empresa<input required name="empresa" class="mt-1.5 w-full rounded-lg border border-black/10 bg-sand px-3 py-2.5 outline-none focus:border-gold" /></label>
+            <label class="text-sm">Correo<input required type="email" name="email" class="mt-1.5 w-full rounded-lg border border-black/10 bg-sand px-3 py-2.5 outline-none focus:border-gold" /></label>
+            <label class="text-sm">Teléfono<input name="telefono" class="mt-1.5 w-full rounded-lg border border-black/10 bg-sand px-3 py-2.5 outline-none focus:border-gold" /></label>
+          </div>
+          <label class="mt-4 block text-sm">Servicio de interés
+            <select name="servicio" class="mt-1.5 w-full rounded-lg border border-black/10 bg-sand px-3 py-2.5 outline-none focus:border-gold">
+              <option>Reuniones y Capacitaciones</option>
+              <option>Colaciones y almuerzos caseros</option>
+              <option>Pedidos Especiales</option>
+              <option>Catálogo general</option>
+            </select>
+          </label>
+          <label class="mt-4 block text-sm">Mensaje<textarea required name="mensaje" rows="4" class="mt-1.5 w-full rounded-lg border border-black/10 bg-sand px-3 py-2.5 outline-none focus:border-gold"></textarea></label>
+          <button type="submit" class="mt-6 w-full rounded-full bg-ink py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white hover:bg-gold hover:text-ink">Cotizar Ahora</button>
+          <p id="formOk" class="mt-4 hidden text-center text-sm text-gold-600">Gracias. Recibimos su solicitud de cotización.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <a id="waFloat" class="wa-float is-soon" href="#contacto" aria-label="WhatsApp próximamente">
+    <i class="fa-brands fa-whatsapp text-2xl"></i>
+  </a>
+
+  <footer class="bg-ink py-10 text-white">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 sm:flex-row lg:px-8">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png?v=14" alt="" class="h-11 w-auto rounded-lg" />
+        <p class="text-xs text-white/45">© 2026 Familia Martínez Confitería. Todos los derechos reservados.</p>
+      </div>
+      <div class="flex gap-4 text-gold">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const loader = document.getElementById("loader");
+    const hideLoader = () => { loader.classList.add("is-done"); document.body.classList.remove("is-loading"); };
+    window.addEventListener("load", () => setTimeout(hideLoader, 1200));
+    setTimeout(hideLoader, 3500);
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+    mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => mobileMenu.classList.add("hidden")));
+    document.getElementById("quoteForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.getElementById("formOk").classList.remove("hidden");
+      event.target.reset();
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add("is-in"); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    const WHATSAPP_NUMBER = "56947487220";
+    if (WHATSAPP_NUMBER) {
+      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("Hola, quiero cotizar con Familia Martínez Confitería.");
+      const waLink = document.getElementById("waLink");
+      const waFloat = document.getElementById("waFloat");
+      waLink.href = url;
+      waLink.textContent = "Escribir por WhatsApp";
+      waFloat.href = url;
+      waFloat.classList.remove("is-soon");
+      waFloat.setAttribute("aria-label", "Escribir por WhatsApp");
+      document.getElementById("waQr").innerHTML = '<img alt="QR WhatsApp" class="h-28 w-28 rounded-xl" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(url) + '" />';
+    }
+  </script>
+</body>
+</html>

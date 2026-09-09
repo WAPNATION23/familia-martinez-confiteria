@@ -1,0 +1,74 @@
+Familia Martínez Confitería
+Cómo publicar en Cloudflare con el dominio de nic.cl
+====================================================
+
+Qué subir
+---------
+Carpeta:  cloudflare-pages
+ZIP:      familia-martinez-cloudflare.zip
+
+Dentro van solo los archivos del sitio (index.html + fotos).
+No subas esta hoja de instrucciones a Cloudflare.
+
+
+1) Crear el sitio en Cloudflare Pages
+-------------------------------------
+1. Entra a https://dash.cloudflare.com y crea una cuenta (plan Free).
+2. Ve a Workers & Pages > Create > Pages > Upload assets.
+3. Nombre del proyecto: familia-martinez (o similar).
+4. Sube el ZIP  familia-martinez-cloudflare.zip
+   o arrastra la carpeta  cloudflare-pages
+5. Deploy. Cloudflare te da una URL temporal, por ejemplo:
+   https://familia-martinez.pages.dev
+6. Ábrela y confirma que la página se ve bien.
+
+
+2) Agregar el dominio .cl a Cloudflare (DNS)
+--------------------------------------------
+El correo de la página es contacto@familiamartinez.cl,
+así que el dominio esperado es familiamartinez.cl.
+Si registraron otro, usa ese mismo nombre en todos los pasos.
+
+1. En Cloudflare: Add a site / Add a domain.
+2. Escribe familiamartinez.cl  (plan Free).
+3. Cloudflare te entrega 2 servidores DNS, por ejemplo:
+     ada.ns.cloudflare.com
+     bob.ns.cloudflare.com
+   Cópialos. Son únicos para tu cuenta.
+
+IMPORTANTE si ya usan correo @familiamartinez.cl:
+Cloudflare suele copiar los registros actuales. Antes de seguir,
+en DNS de Cloudflare revisa que existan los MX del correo.
+Si los borras, deja de llegar el mail.
+
+
+3) Cambiar los DNS en nic.cl
+----------------------------
+1. Entra a https://www.nic.cl  con RUT y clave.
+2. Mis dominios > familiamartinez.cl > Modificar.
+3. En Servidores DNS borra los actuales.
+4. Pega los 2 nameservers que te dio Cloudflare.
+5. Guarda.
+
+Puede tardar de 15 minutos a unas horas. A veces nic.cl pide
+esperar 10 minutos si dice que los nameservers no son reconocidos.
+
+
+4) Conectar el dominio al sitio (Pages)
+---------------------------------------
+1. En Cloudflare: Pages > tu proyecto > Custom domains.
+2. Add domain:  familiamartinez.cl
+3. Add domain:  www.familiamartinez.cl
+4. Cloudflare crea los registros y activa HTTPS (candado) solo.
+
+Cuando el estado quede Active, la web queda en:
+  https://familiamartinez.cl
+  https://www.familiamartinez.cl
+
+
+Si algo no carga
+----------------
+- Espera la propagación DNS (hasta 24 h, normalmente menos).
+- Recarga con Ctrl+F5.
+- En Pages > Deployments confirma que el último deploy es el ZIP nuevo.
+- Si el correo dejó de llegar, revisa los registros MX en Cloudflare DNS.
